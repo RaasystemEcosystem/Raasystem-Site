@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Raasystem – Explorer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FFD700;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #FFD700;
+      color: #000;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 24px;
+      height: 3px;
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #111;
+        position: absolute;
+        top: 58px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 8px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Black Intro Section */
+    .container {
+      max-width: 1200px;
+      margin: 140px auto 40px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      color: #FFD700;
+    }
+
+    .container p {
+      font-size: 1.15rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    /* White Content Palets */
+    .white-section {
+      background-color: #fff;
+      color: #000;
+      margin: 40px auto;
+      padding: 40px 20px;
+      border-radius: 8px;
+      max-width: 1200px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    .explorer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+    }
+
+    footer a {
+      color: #FFD700;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="logo">Raasystem</div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+      </div>
+      <nav>
+        <ul id="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="explorer.html" class="active">Explorer</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="integrations.html">Integrations</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="get-started.html">Get Started</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Intro Black Section -->
+    <div class="container">
+      <h1>Raasystem Explorer</h1>
+      <p>Track transactions, blocks, tokens, and smart contracts across the Raasystem network in real-time.</p>
+    </div>
+
+    <!-- White Explorer Panels -->
+    <div class="white-section">
+      <h2 class="section-title">Live Network Stats</h2>
+      <div class="explorer-grid">
+        <div class="card">
+          <h3>Latest Block</h3>
+          <p>#5,234,900<br>14 secs ago</p>
+        </div>
+        <div class="card">
+          <h3>Transactions Today</h3>
+          <p>24,812</p>
+        </div>
+        <div class="card">
+          <h3>Active Wallets</h3>
+          <p>83,170</p>
+        </div>
+ <div class="card">
+  <h3>Total Supply</h3>
+  <p>10,000,000,000 RAAS<br>100,000,000,000 RAAK</p>
+</div>
+     </div>
+    </div>
+
+    <div class="white-section">
+      <h2 class="section-title">Search the Blockchain</h2>
+      <input type="text" placeholder="Search by address, transaction hash, or contract..." style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #ccc;" />
+    </div>
+
+    <div class="white-section">
+  <h2 class="section-title">Recent Transactions</h2>
+  <div class="explorer-grid">
+    <div class="card">
+      <p><strong>TX Hash:</strong> 0xa2f...8bd3<br><strong>From:</strong> 0x93d...7fa1<br><strong>To:</strong> 0xa82...1db9<br><strong>Value:</strong> 1,500 RASK</p>
+    </div>
+    <div class="card">
+      <p><strong>TX Hash:</strong> 0x8dd...23a0<br><strong>From:</strong> 0x1e5...4c0b<br><strong>To:</strong> 0xf11...9e3a<br><strong>Value:</strong> 2.3 RASK</p>
+    </div>
+  </div>
+</div>
+    <div class="white-section">
+      <h2 class="section-title">Top Tokens</h2>
+      <div class="explorer-grid">
+        <div class="card">
+          <h3>Raaskoin (RAAS)</h3>
+          <p>Price: $0.10 • Market Cap: $1B</p>
+        </div>
+        <div class="card">
+          <h3>Raastoken (RAAK)</h3>
+          <p>Price: $0.01 • Market Cap: $1B</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="white-section">
+  <h2 class="section-title">Verified Smart Contracts</h2>
+  <div class="explorer-grid">
+    <div class="card">
+      <p><strong>Contract:</strong> Raaswallet V2<br><strong>Address:</strong> 0xabc...789</p>
+    </div>
+    <div class="card">
+      <p><strong>Contract:</strong> Raaspay Merchant Processor<br><strong>Address:</strong> 0xdef...456</p>
+    </div>
+  </div>
+</div>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav-list');
+      nav.classList.toggle('show');
+    }
+  </script>
+<div id="footer-placeholder"></div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    })
+    .catch(error => console.error('Footer load error:', error));
+</script>
+</body>
+</html>
+
