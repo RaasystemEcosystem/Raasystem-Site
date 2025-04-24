@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Raasystem – Decentralized Everything</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FFD700;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #FFD700;
+      color: #000;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 24px;
+      height: 3px;
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #111;
+        position: absolute;
+        top: 58px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 8px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 140px auto 40px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: #FFD700;
+    }
+
+    .container p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    .white-section {
+      background-color: #fff;
+      color: #000;
+      margin: 40px auto;
+      padding: 40px 20px;
+      border-radius: 8px;
+      max-width: 1200px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #222;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+    }
+
+    footer a {
+      color: #FFD700;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="logo">Raasystem</div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+      </div>
+      <nav>
+        <ul id="nav-list">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="explorer.html">Explorer</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="integrations.html">Integrations</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="get-started.html">Get Started</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Welcome to Raasystem</h1>
+      <p>Raasystem powers decentralized finance, payments, tokenization, and smart contracts across a secure and scalable network.</p>
+    </div>
+
+    <div class="white-section">
+      <h2 class="section-title">Why Raasystem?</h2>
+      <div class="grid">
+        <div class="card"><h3>Scalable</h3><p>Handles thousands of transactions per second for global use cases.</p></div>
+        <div class="card"><h3>Secure</h3><p>Built on XDC blockchain with military-grade encryption and fault tolerance.</p></div>
+        <div class="card"><h3>Interoperable</h3><p>Connects to Ethereum, BSC, Polygon, and beyond using native bridges.</p></div>
+        <div class="card"><h3>Real-Time Oracle</h3><p>Live gold-backed price feeds and automated smart contract triggers.</p></div>
+      </div>
+    </div>
+
+    <div class="white-section">
+      <h2 class="section-title">Explore Our Ecosystem</h2>
+      <div class="grid">
+        <div class="card"><h3>Raaskoin (RAAS)</h3><p>Gold-backed utility token used for trading, payments, and staking.</p></div>
+        <div class="card"><h3>RABEX</h3><p>AI-driven trading engine for crypto and stock markets with liquidity automation.</p></div>
+        <div class="card"><h3>Raaspay</h3><p>Merchant platform for instant crypto-to-fiat conversion and debit card integration.</p></div>
+        <div class="card"><h3>Raaswallet</h3><p>Non-custodial wallet for managing RAAS, RAAK, and other assets securely.</p></div>
+      </div>
+    </div>
+
+    <div class="white-section">
+      <h2 class="section-title">Built For Africa and Beyond</h2>
+      <div class="grid">
+        <div class="card"><h3>Cross-Border Remittance</h3><p>Send funds instantly across borders with minimal fees.</p></div>
+        <div class="card"><h3>Tokenized Agriculture</h3><p>Empower farmers and investors through smart contract farming models.</p></div>
+        <div class="card"><h3>Micropayments</h3><p>Support micro-economies using low-cost, high-speed payments.</p></div>
+        <div class="card"><h3>Decentralized Credit</h3><p>Credit scoring and loan issuance powered by on-chain data.</p></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Raasystem. All rights reserved.</p>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-list').classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
