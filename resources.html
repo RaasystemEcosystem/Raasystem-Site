@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resources – Raasystem</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FFD700;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 4px;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #FFD700;
+      color: #000;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 24px;
+      height: 3px;
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #111;
+        position: absolute;
+        top: 58px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 8px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 140px auto 40px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: #FFD700;
+    }
+
+    .container p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    .white-section {
+      background-color: #fff;
+      color: #000;
+      margin: 40px auto;
+      padding: 40px 20px;
+      border-radius: 8px;
+      max-width: 1200px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #222;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+    }
+
+    footer a {
+      color: #FFD700;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="logo">Raasystem</div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+      </div>
+      <nav>
+        <ul id="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="explorer.html">Explorer</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="integrations.html">Integrations</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="get-started.html">Get Started</a></li>
+          <li><a href="resources.html" class="active">Resources</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Resources</h1>
+      <p>Find all the documentation, downloads, and guides you need to integrate and scale with the Raasystem platform.</p>
+    </div>
+
+    <div class="white-section">
+      <h2 class="section-title">Documentation</h2>
+      <div class="grid">
+        <div class="card"><h3>Developer Docs</h3><p>Smart contract specs, APIs, SDKs, and Raaskoin integration guides.</p></div>
+        <div class="card"><h3>Raaspay Merchant Docs</h3><p>Steps to onboard merchants and accept Raaskoin with automatic fiat settlements.</p></div>
+        <div class="card"><h3>Wallet Integration</h3><p>Connect Raaswallet to MetaMask and manage tokens across devices.</p></div>
+        <div class="card"><h3>Security Guidelines</h3><p>Best practices for securing funds, transactions, and private keys.</p></div>
+      </div>
+    </div>
+
+    <div class="white-section">
+      <h2 class="section-title">Downloads & Links</h2>
+      <div class="grid">
+        <div class="card"><h3>Raaswallet APK</h3><p>Download the latest Android release of the Raaswallet app.</p></div>
+        <div class="card"><h3>RABEX Web App</h3><p>Launch the AI trading engine and explore real-time crypto/gold markets.</p></div>
+        <div class="card"><h3>Smart Contract Templates</h3><p>Access GitHub repos for Raaskoin, token launchers, oracles, and oracles.</p></div>
+        <div class="card"><h3>Whitepapers & Audits</h3><p>Technical whitepapers, audits, and compliance resources.</p></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-list').classList.toggle('show');
+    }
+  </script>
+<div id="footer-placeholder"></div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    })
+    .catch(error => console.error('Footer load error:', error));
+</script>
+</body>
+</html>
