@@ -1,22 +1,20 @@
 ﻿# Raasystem Smart Contract Documentation
 
-This directory contains documentation for all major smart contracts in the Raasystem Ecosystem.  
-Each `.md` file provides an overview, functionality, and relevant technical details of the associated contract.
+This directory contains documentation for all major smart contracts in the Raasystem Ecosystem.
+Each .md file provides an overview, functionality, and relevant technical details of the associated contract.
 
 ---
 
-## 📄 Table of Contents
-
-- [Raaskoin](./Raaskoin.md)
-- [Raastoken](./Raastoken.md)
-- [Raaspay](./Raaspay.md)
-- [Rabex](./Rabex.md)
-- [Raaswallet](./Raaswallet.md)
+## ðŸ“„ Table of Contents
 - [GoldPriceOracle](./GoldPriceOracle.md)
-
+- [Raaskoin](./Raaskoin.md)
+- [Raaspay](./Raaspay.md)
+- [Raastoken](./Raastoken.md)
+- [Raaswallet](./Raaswallet.md)
+- [Rabex](./Rabex.md)
 ---
 
-> 📝 **Note:** Older versions of each contract are also preserved for historical reference and can be found as `.old.md` files.
+> ðŸ“ **Note:** Older versions of each contract are also preserved for historical reference and can be found as .old.md files.
 
 ---
 
