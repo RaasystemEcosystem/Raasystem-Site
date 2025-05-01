@@ -1,9 +1,23 @@
-## 📄 Smart Contract Documentation
+﻿# Raasystem Smart Contract Documentation
 
-| Contract         | Description                    |
-|------------------|--------------------------------|
-| [Raaskoin](./docs/contracts/Raaskoin.md)    | Gold-pegged token contract         |
-| [Raastoken](./docs/contracts/Raastoken.md)   | Utility token used in Raasystem    |
-| [GoldPriceOracle](./docs/contracts/GoldPriceOracle.md) | Oracle updating real-time gold prices |
-| [Raaspay](./docs/contracts/Raaspay.md)     | Payment gateway integration        |
-| [RABEX](./docs/contracts/RABEX.md)         | AI-driven trading engine           |
+This directory contains documentation for all major smart contracts in the Raasystem Ecosystem.  
+Each `.md` file provides an overview, functionality, and relevant technical details of the associated contract.
+
+---
+
+## 📄 Table of Contents
+
+- [Raaskoin](./Raaskoin.md)
+- [Raastoken](./Raastoken.md)
+- [Raaspay](./Raaspay.md)
+- [Rabex](./Rabex.md)
+- [Raaswallet](./Raaswallet.md)
+- [GoldPriceOracle](./GoldPriceOracle.md)
+
+---
+
+> 📝 **Note:** Older versions of each contract are also preserved for historical reference and can be found as `.old.md` files.
+
+---
+
+For a full overview of the Raasystem architecture, AI trading engine, and ecosystem components, visit the main [Raasystem GitHub Repository](https://github.com/RaasystemEcosystem/Raasystem-Site).
