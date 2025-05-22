@@ -1,97 +1,87 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RABEX - Autonomous AI Trading Platform</title>
+  <title>RABEX AI Engine</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url('/images/rabex-bg.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-900 font-sans">
+<body class="text-white font-sans bg-black bg-opacity-90">
 
   <!-- Header -->
-  <header class="bg-white shadow-md">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="text-xl font-bold text-blue-600">RABEX</div>
-      <nav class="space-x-6 text-sm text-gray-700 font-medium">
-        <a href="#" class="hover:text-blue-600">Home</a>
-        <a href="#" class="hover:text-blue-600">Dashboard</a>
-        <a href="#" class="hover:text-blue-600">Markets</a>
-        <a href="#" class="hover:text-blue-600">Docs</a>
-        <a href="#" class="hover:text-blue-600">Contact</a>
-      </nav>
-    </div>
+  <header class="flex justify-between items-center p-6 bg-black bg-opacity-80 border-b border-gray-800">
+    <h1 class="text-2xl font-bold text-yellow-400">Raasystem</h1>
+    <!-- Embedded Navbar -->
+    <nav class="flex space-x-6 text-sm text-white">
+      <a href="index.html" class="hover:text-yellow-400 transition">Home</a>
+      <a href="rabex.html" class="hover:text-yellow-400 transition">RABEX</a>
+      <a href="raaswallet.html" class="hover:text-yellow-400 transition">Raaswallet</a>
+      <a href="raaspay.html" class="hover:text-yellow-400 transition">Raaspay</a>
+      <a href="raaskoin.html" class="hover:text-yellow-400 transition">Raaskoin</a>
+      <a href="raastoken.html" class="hover:text-yellow-400 transition">Raastoken</a>
+      <a href="oracle.html" class="hover:text-yellow-400 transition">Oracle Monitor</a>
+      <a href="progress.html" class="text-white hover:text-yellow-500">Progress</a>
+
+    </nav>
   </header>
 
-  <!-- Main Body -->
-  <main class="bg-gray-50 min-h-[60vh] flex items-center justify-center px-6 py-20 text-center">
-    <div>
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">Launch the <span class="text-blue-600">RABEX Autonomous Trading Platform</span></h1>
-      <p class="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
-        Experience the power of autonomous trading on the XDC Network. RABEX is more than a dashboard—it's an AI-driven engine for optimized trading, dynamic order books, price intelligence, seamless cross-asset execution, and Automated Market Maker. Access begins with your Raaswallet—the key to the Beast.
-      </p>
-      <a href="https://raaswallet.rasystem.net" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition text-sm font-medium">
-        Unlock with Raaswallet
+  <!-- Main Content -->
+  <main class="p-8 max-w-7xl mx-auto bg-black bg-opacity-70 rounded-lg mt-10 shadow-lg">
+    <section class="text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4 text-yellow-400">RABEX AI Engine</h2>
+      <p class="text-lg">Experience next-level trading intelligence with the Beast</p>
+    </section>
+
+    <!-- 2x3 Grid of Attributes -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="bg-gray-900 bg-opacity-90 p-6 rounded-2xl shadow-lg">
+        <h3 class="text-xl font-bold text-yellow-300 mb-2">AI-Powered Order Matching</h3>
+        <p class="text-sm text-white">Delivers intelligent trade matching for maximum execution efficiency.</p>
+      </div>
+
+      <div class="bg-gray-900 bg-opacity-90 p-6 rounded-2xl shadow-lg">
+        <h3 class="text-xl font-bold text-yellow-300 mb-2">Real-Time Arbitrage Detection</h3>
+        <p class="text-sm text-white">Scans global exchanges to capture instant price differences.</p>
+      </div>
+
+      <div class="bg-gray-900 bg-opacity-90 p-6 rounded-2xl shadow-lg">
+        <h3 class="text-xl font-bold text-yellow-300 mb-2">Dynamic Liquidity Pools</h3>
+        <p class="text-sm text-white">Adjusts in real-time to ensure smooth and stable trading activity.</p>
+      </div>
+
+      <div class="bg-gray-900 bg-opacity-90 p-6 rounded-2xl shadow-lg">
+        <h3 class="text-xl font-bold text-yellow-300 mb-2">AI-Driven Spread Optimization</h3>
+        <p class="text-sm text-white">Maximizes market-making profitability with dynamic bid/ask spreads.</p>
+      </div>
+
+      <div class="bg-gray-900 bg-opacity-90 p-6 rounded-2xl shadow-lg">
+        <h3 class="text-xl font-bold text-yellow-300 mb-2">Advanced Risk Management</h3>
+        <p class="text-sm text-white">Continuously monitors volatility and adapts strategy to protect capital.</p>
+      </div>
+
+      <div class="bg-gray-900 bg-opacity-90 p-6 rounded-2xl shadow-lg">
+        <h3 class="text-xl font-bold text-yellow-300 mb-2">Cross-Market Execution</h3>
+        <p class="text-sm text-white">Executes trades across crypto and traditional markets — unified under one Beast.</p>
+      </div>
+    </section>
+  
+    <!-- Call to Action -->
+    <section class="text-center mt-16">
+      <a href="https://app.raasystem.net/rabex" target="_blank" class="inline-block bg-yellow-400 text-black text-lg font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-300 transition">
+        🚀 Launch RABEX AI-Exchange
       </a>
-    </div>
+    </section>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-100 px-6 py-12">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-
-      <!-- Company -->
-      <div>
-        <h2 class="text-lg font-semibold mb-4">Company</h2>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:underline hover:text-blue-400 transition">About Us</a></li>
-          <li><a href="#" class="hover:underline hover:text-blue-400 transition">Careers</a></li>
-          <li><a href="#" class="hover:underline hover:text-blue-400 transition">Press</a></li>
-          <li><a href="#" class="hover:underline hover:text-blue-400 transition">Blog</a></li>
-        </ul>
-      </div>
-
-      <!-- Subscribe -->
-      <div>
-        <h2 class="text-lg font-semibold mb-4">Subscribe</h2>
-        <p class="text-sm mb-3 text-gray-400">Get the latest updates and news.</p>
-        <form class="flex flex-col space-y-2">
-          <input type="email" placeholder="Your email" class="px-4 py-2 rounded bg-gray-800 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded transition">
-            Subscribe
-          </button>
-        </form>
-      </div>
-
-      <!-- Support -->
-      <div>
-        <h2 class="text-lg font-semibold mb-4">Support</h2>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:underline hover:text-blue-400 transition">Help Center</a></li>
-          <li><a href="#" class="hover:underline hover:text-blue-400 transition">Terms of Service</a></li>
-          <li><a href="#" class="hover:underline hover:text-blue-400 transition">Legal</a></li>
-          <li><a href="#" class="hover:underline hover:text-blue-400 transition">Privacy Policy</a></li>
-        </ul>
-      </div>
-
-      <!-- Follow Us -->
-      <div>
-        <h2 class="text-lg font-semibold mb-4">Follow Us</h2>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:underline hover:text-blue-400 transition">GitHub</a></li>
-          <li><a href="#" class="hover:underline hover:text-blue-400 transition">Telegram</a></li>
-          <li><a href="#" class="hover:underline hover:text-blue-400 transition">LinkedIn</a></li>
-          <li><a href="#" class="hover:underline hover:text-blue-400 transition">X (Twitter)</a></li>
-          <li><a href="#" class="hover:underline hover:text-blue-400 transition">YouTube</a></li>
-          <li><a href="#" class="hover:underline hover:text-blue-400 transition">Discord</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- Bottom line -->
-    <div class="mt-12 text-center text-sm text-gray-500 border-t border-gray-800 pt-6">
-      &copy; 2025 RABEX. All rights reserved.
-    </div>
+  <footer class="text-center text-gray-500 text-sm mt-16 p-6 border-t border-gray-800 bg-black bg-opacity-80">
+    &copy; 2025 RABEX. All rights reserved.
   </footer>
 
 </body>

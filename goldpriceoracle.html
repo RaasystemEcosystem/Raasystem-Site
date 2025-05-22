@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gold Price Oracle Monitor</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: #0a0a0a;
+      color: #fff;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #facc15;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 1.2rem 0;
+      background: linear-gradient(90deg, #ffd700, #ffcc00, #fff8b0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .price-display {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #4caf50;
+      margin-top: 1rem;
+    }
+
+    .last-updated {
+      font-size: 0.95rem;
+      color: #888;
+      margin-top: 0.5rem;
+    }
+
+    .oracle-details {
+      margin-top: 2rem;
+      font-size: 1rem;
+      background: #f1f1f1;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background: #eaeaea;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="rabex.html">RABEX</a>
+      <a href="raaswallet.html">Raaswallet</a>
+      <a href="raaspay.html">Raaspay</a>
+      <a href="raaskoin.html">Raaskoin</a>
+      <a href="raastoken.html">Raastoken</a>
+      <a href="goldpriceoracle.html">Oracle Monitor</a>
+    </nav>
+    <div class="title">Gold Price Oracle Monitor</div>
+  </header>
+
+  <main>
+    <h2>Live Gold Price (Oracle Feed)</h2>
+    <div class="price-display">$2,321.45</div>
+    <div class="last-updated">Last updated: May 20, 2025, 14:36 UTC</div>
+
+    <div class="oracle-details">
+      <p><strong>Oracle Contract Address:</strong> 0x...1234</p>
+      <p><strong>Feed Source:</strong> Chainlink Ethereum Mainnet (Off-chain → On-chain via XDC Oracle)</p>
+      <p><strong>Update Frequency:</strong> Every 5 minutes</p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Raasystem. All rights reserved.
+  </footer>
+
+</body>
+</html>

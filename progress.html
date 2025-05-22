@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Raasystem Progress</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: #0a0a0a; /* Darker background */
+      color: #fff;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #facc15; /* yellow-500 */
+    }
+
+    .title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 1.2rem 0;
+      background: linear-gradient(90deg, #ffd700, #ffcc00, #fff8b0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .progress-bar-container {
+      background: #333;
+      height: 12px;
+      width: 100%;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(to right, #4caf50, #8bc34a);
+      width: 70%;
+      transition: width 0.3s ease-in-out;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: 0.2s ease-in-out;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.15rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background: #eaeaea;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="rabex.html">RABEX</a>
+      <a href="raaswallet.html">Raaswallet</a>
+      <a href="raaspay.html">Raaspay</a>
+      <a href="raaskoin.html">Raaskoin</a>
+      <a href="raastoken.html">Raastoken</a>
+      <a href="goldpriceoracle.html">Oracle Monitor</a>
+    </nav>
+    <div class="title">Raasystem Progress Dashboard</div>
+    <div class="progress-bar-container">
+      <div class="progress-bar"></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="grid">
+      <div class="card">
+        <h2>✅ Smart Contracts Finalized</h2>
+        <p>Raaskoin, Raastoken, RABEX, Raaswallet, and Raaspay contracts are compiled, tested, and deployed on XDC Apothem Testnet.</p>
+      </div>
+
+      <div class="card">
+        <h2>📡 Gold Price Oracle Integrated</h2>
+        <p>Live gold prices fetched from Chainlink and published to XDC GoldPriceOracle for real-time Raaskoin value reference.</p>
+      </div>
+
+      <div class="card">
+        <h2>⚙️ Backend Services Live</h2>
+        <p>Oracle engine, RABEX AI trading backend, and Raaspay API are implemented, connected, and functional.</p>
+      </div>
+
+      <div class="card">
+        <h2>🧪 Interoperability Verified</h2>
+        <p>Raaskoin, RABEX, Raaswallet, and Raaspay communicate seamlessly for unified user experiences and live transactions.</p>
+      </div>
+
+      <div class="card">
+        <h2>💳 Raaskoin Utility Confirmed</h2>
+        <p>Raaskoin supports trading, merchant payments, cross-border transfers, and debit card conversions via Raaspay.</p>
+      </div>
+
+      <div class="card">
+        <h2>🧠 RABEX AI Engine Active</h2>
+        <p>Real-time trading with AI-driven spread control, arbitrage alerts, and order book optimization fully integrated.</p>
+      </div>
+
+      <div class="card">
+        <h2>📦 Frontend UIs Complete</h2>
+        <p>UIs for RABEX, Raaswallet, and Raaspay are designed, responsive, and fully connected to the backend services.</p>
+      </div>
+
+      <div class="card">
+        <h2>🚀 Deployment Scripts Ready</h2>
+        <p>Terraform and GitHub Actions enable automated AWS infrastructure setup, CI/CD, and contract deployment.</p>
+      </div>
+
+      <div class="card">
+        <h2>📁 GitHub & Docs Finalized</h2>
+        <p>All repositories cleaned and pushed with setup guides, test coverage, architecture notes, and dev instructions.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Raasystem. All rights reserved.
+  </footer>
+
+</body>
+</html>
