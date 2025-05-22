@@ -28,16 +28,15 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist  # or ./build if you're using React
+        publish_dir: ./dist  # or ./build for React/Vite
 
     - name: Upload to AWS S3
       uses: jakejarvis/s3-sync-action@master
       with:
         args: --delete
       env:
-        AWS_S3_BUCKET: raasystem.net  # Replace with your bucket name
-        AWS_ACCESS_KEY_ID: ${{ YOUR_ACTUAL_ACCESS_KEY }}
-        AWS_SECRET_ACCESS_KEY: ${{ YOUR_ACTUAL_SECRET_KEY }}
-        AWS_REGION: us-west-2  # Replace with your region
-        SOURCE_DIR: ./dist  # or ./build if React/Vite
- 
+        AWS_S3_BUCKET: raasystem.net
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: us-west-2
+        SOURCE_DIR: ./dist
