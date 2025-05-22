@@ -1,4 +1,4 @@
-name: Deploy Raasystem to S3
+name: Deploy to GitHub Pages and AWS S3
 
 on:
   push:
@@ -10,15 +10,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1  # ← change this if your S3 bucket is in a different region
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
 
-      - name: Sync files to S3
-        run: aws s3 sync . s3://raasystem-site --exclude ".git/*" --exclude "node_modules/*" --delete
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build site
+      run: npm run build
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist  # or ./build if you're using React
+
+    - name: Upload to AWS S3
+      uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --delete
+      env:
+        AWS_S3_BUCKET: raasystem.net  # Replace with your bucket name
+        AWS_ACCESS_KEY_ID: ${{ YOUR_ACTUAL_ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ YOUR_ACTUAL_SECRET_KEY }}
+        AWS_REGION: us-west-2  # Replace with your region
+        SOURCE_DIR: ./dist  # or ./build if React/Vite
+ 
