@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Raasystem – Ecosystem Overview</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FFD700;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 4px;
+      display: block;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #FFD700;
+      color: #000;
+    }
+
+    /* Dropdown Menu */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 38px;
+      left: 0;
+      background-color: #111;
+      padding: 10px 0;
+      border-radius: 6px;
+      min-width: 200px;
+      z-index: 1000;
+    }
+
+    .dropdown-menu li a {
+      padding: 8px 16px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: #FFD700;
+      color: #000;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      nav ul li:hover .dropdown-menu {
+        display: block;
+      }
+    }
+
+    /* Mobile Navigation */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 24px;
+      height: 3px;
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #111;
+        position: absolute;
+        top: 58px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 8px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .dropdown-menu {
+        position: relative;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        border-radius: 0;
+        padding: 0;
+      }
+
+      nav ul li.show-dropdown .dropdown-menu {
+        display: block;
+      }
+    }
+
+    /* Page Layout */
+    .container {
+      max-width: 1200px;
+      margin: 140px auto 40px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: #FFD700;
+    }
+
+    .container p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    .white-section {
+      background-color: #fff;
+      color: #000;
+      margin: 40px auto;
+      padding: 40px 20px;
+      border-radius: 8px;
+      max-width: 1200px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #222;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+    }
+
+    footer a {
+      color: #FFD700;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="logo">Raasystem</div>
+      <div class="hamburger" aria-label="menu" aria-expanded="false">
+        <div></div><div></div><div></div>
+      </div>
+
+      <nav>
+        <ul id="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="raasgenai.html">RaasGenAI</a></li>
+          <li class="dropdown">
+            <a href="ecosystem.html" class="active" aria-haspopup="true" aria-expanded="true">Ecosystem</a>
+            <ul class="dropdown-menu" aria-label="Ecosystem submenu">
+              <li><a href="raaswallet.html">Raaswallet</a></li>
+              <li><a href="rabex.html">RABEX (AI Exchange)</a></li>
+              <li><a href="raaspay.html">Raaspay</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="developers.html" aria-haspopup="true" aria-expanded="false">Developers</a>
+            <ul class="dropdown-menu" aria-label="Developers submenu">
+              <li><a href="api.html">API & SDK</a></li>
+              <li><a href="smartcontracts.html">Smart Contracts</a></li>
+              <li><a href="oracle.html">Oracle Docs</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="partners.html" aria-haspopup="true" aria-expanded="false">Partners</a>
+            <ul class="dropdown-menu" aria-label="Partners submenu">
+              <li><a href="aws.html">AWS × Raasystem</a></li>
+              <li><a href="enterprise.html">Enterprise Solutions</a></li>
+              <li><a href="africa.html">Africa Digital Sovereignty Initiative</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="resources.html" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <ul class="dropdown-menu" aria-label="Resources submenu">
+              <li><a href="whitepaper.html">Whitepaper</a></li>
+              <li><a href="media.html">Media / Blog</a></li>
+              <li><a href="support.html">Support / FAQ</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="login.html" style="background-color: #FFD700; color: #000; font-weight: bold; padding: 8px 14px; border-radius: 5px;">
+              Login / Sign Up
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Explore the Raasystem Ecosystem</h1>
+      <p>The Raasystem ecosystem connects finance, payments, AI, and decentralized innovation — powering Africa’s digital future through RaasBridge.</p>
+    </div>
+
+    <div class="white-section">
+      <h2 class="section-title">DeFi & Finance</h2>
+      <div class="grid">
+        <div class="card"><h3>Gold-Backed Tokenization</h3><p>Issue stable digital assets with intrinsic value via Raaskoin and real-time oracle pricing.</p></div>
+        <div class="card"><h3>AI-Powered Trading</h3><p>Automate liquidity, arbitrage, and order book optimization through the RABEX engine.</p></div>
+        <div class="card"><h3>Microloan Systems</h3><p>On-chain credit scoring and smart contract-backed loan issuance for underserved markets.</p></div>
+        <div class="card"><h3>Decentralized Exchange</h3><p>Trade crypto and stocks on RABEX with dynamic spreads and liquidity pools.</p></div>
+      </div>
+    </div>
+
+    <div class="white-section">
+      <h2 class="section-title">Payments & Commerce</h2>
+      <div class="grid">
+        <div class="card"><h3>Merchant Onboarding</h3><p>Raaspay enables any business to accept crypto and settle in fiat instantly.</p></div>
+        <div class="card"><h3>Cross-Border Transactions</h3><p>Use Raaskoin to send money globally with near-zero fees and real-time settlement.</p></div>
+        <div class="card"><h3>Crypto Debit Cards</h3><p>Issue branded debit cards for merchants and users to spend crypto like cash.</p></div>
+        <div class="card"><h3>Mobile Payment Gateway</h3><p>Fully integrated mobile and USSD interface for both smartphone and feature phone users.</p></div>
+      </div>
+    </div>
+
+    <div class="white-section">
+      <h2 class="section-title">Real-World Use Cases</h2>
+      <div class="grid">
+        <div class="card"><h3>Smart Agriculture</h3><p>Tokenize crop cycles, manage cooperative farming, and track yields via blockchain.</p></div>
+        <div class="card"><h3>Logistics & Export</h3><p>Track goods across borders and automate documentation using smart contracts.</p></div>
+        <div class="card"><h3>Real Estate Tokenization</h3><p>Fractionalize property investments with KYC, legal, and automated yield payouts.</p></div>
+        <div class="card"><h3>Carbon Credits</h3><p>Track and tokenize CO₂ offsets for transparent, verifiable carbon markets.</p></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Toggle mobile menu
+    const hamburger = document.querySelector('.hamburger');
+    const navList = document.getElementById('nav-list');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
+      navList.classList.toggle('show');
+    });
+
+    // Mobile dropdown support
+    const dropdownLinks = document.querySelectorAll('.dropdown > a');
+    dropdownLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          const parent = link.parentElement;
+          parent.classList.toggle('show-dropdown');
+          link.setAttribute('aria-expanded', String(parent.classList.contains('show-dropdown')));
+        }
+      });
+    });
+
+    // Close dropdowns if resized above mobile
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        navList.classList.remove('show');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.querySelectorAll('.dropdown').forEach(d => {
+          d.classList.remove('show-dropdown');
+          d.querySelector('a').setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  </script>
+
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      })
+      .catch(error => console.error('Footer load error:', error));
+  </script>
+</body>
+</html>

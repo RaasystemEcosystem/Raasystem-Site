@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Raasystem – Decentralized Everything</title>
+  <title>Raasystem – AI-Driven Financial Ecosystem</title>
   <style>
     body {
       margin: 0;
@@ -44,12 +44,17 @@
       list-style: none;
     }
 
+    nav ul li {
+      position: relative;
+    }
+
     nav ul li a {
       color: #fff;
       text-decoration: none;
       font-weight: 500;
       padding: 6px 10px;
       border-radius: 4px;
+      display: block;
     }
 
     nav ul li a:hover,
@@ -58,6 +63,35 @@
       color: #000;
     }
 
+    /* Dropdown Menu */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 38px;
+      left: 0;
+      background-color: #111;
+      padding: 10px 0;
+      border-radius: 6px;
+      min-width: 200px;
+      z-index: 1000;
+    }
+
+    .dropdown-menu li a {
+      padding: 8px 16px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: #FFD700;
+      color: #000;
+    }
+
+    nav ul li:hover .dropdown-menu {
+      display: block;
+    }
+
+    /* Mobile Navigation */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -90,62 +124,60 @@
       .hamburger {
         display: flex;
       }
+
+      .dropdown-menu {
+        position: relative;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        border-radius: 0;
+        padding: 0;
+      }
+
+      nav ul li:hover .dropdown-menu {
+        display: none;
+      }
+
+      nav ul li.show-dropdown .dropdown-menu {
+        display: block;
+      }
     }
 
-    .container {
+    /* Hero Section */
+    .hero {
       max-width: 1200px;
-      margin: 140px auto 40px;
-      padding: 20px;
+      margin: 140px auto 60px;
+      padding: 0 20px;
       text-align: center;
     }
 
-    .container h1 {
+    .hero h1 {
       font-size: 3rem;
-      margin-bottom: 15px;
       color: #FFD700;
-    }
-
-    .container p {
-      font-size: 1.2rem;
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.6;
-      color: #ddd;
-    }
-
-    .white-section {
-      background-color: #fff;
-      color: #000;
-      margin: 40px auto;
-      padding: 40px 20px;
-      border-radius: 8px;
-      max-width: 1200px;
-    }
-
-    .section-title {
-      font-size: 2rem;
       margin-bottom: 20px;
-      color: #222;
-      text-align: center;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+    .hero p {
+      font-size: 1.3rem;
+      color: #ddd;
+      max-width: 900px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
     }
 
-    .card {
-      background-color: #f9f9f9;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      text-align: left;
+    .cta-button {
+      display: inline-block;
+      padding: 14px 30px;
+      background-color: #FFD700;
+      color: #000;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
     }
 
-    .card h3 {
-      margin-top: 0;
-      color: #333;
+    .cta-button:hover {
+      background-color: #e6c200;
     }
 
     footer {
@@ -177,13 +209,49 @@
     <nav>
       <ul id="nav-list">
         <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="explorer.html">Explorer</a></li>
-        <li><a href="solutions.html">Solutions</a></li>
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="integrations.html">Integrations</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="get-started.html">Get Started</a></li>
-        <li><a href="resources.html">Resources</a></li>
+
+        <li class="dropdown">
+          <a href="ecosystem.html">Ecosystem ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="raaswallet.html">Raaswallet</a></li>
+            <li><a href="rabex.html">RABEX (AI Exchange)</a></li>
+            <li><a href="raaspay.html">Raaspay</a></li>
+          </ul>
+        </li>
+
+        <li><a href="raasgenai.html">RaasGenAI</a></li>
+
+        <li class="dropdown">
+          <a href="developers.html">Developers ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="developers.html">Developer Center</a></li>
+            <li><a href="sdk.html">SDK & API</a></li>
+            <li><a href="smartcontracts.html">Smart Contracts</a></li>
+            <li><a href="oracle.html">Oracle Integration</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="partners.html">Partners ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="partners.html">Our Partners</a></li>
+            <li><a href="aws.html">AWS Collaboration</a></li>
+            <li><a href="institutions.html">Institutions & Governments</a></li>
+            <li><a href="alliances.html">Strategic Alliances</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="resources.html">Resources ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="resources.html">Overview</a></li>
+            <li><a href="whitepaper.html">Whitepaper</a></li>
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </li>
+
         <li><a href="login.html" style="background-color: #FFD700; color: #000; font-weight: bold; padding: 8px 14px; border-radius: 5px;">Login / Sign Up</a></li>
       </ul>
     </nav>
@@ -191,42 +259,10 @@
 </header>
 
 <main>
-  <div class="container">
+  <div class="hero">
     <h1>Welcome to Raasystem</h1>
-    <p>Raasystem powers decentralized finance, payments, tokenization, and smart contracts across a secure and scalable network.</p>
-    <a href="raaswallet.html" style="display:inline-block; margin-top: 20px; padding: 12px 24px; background-color: #FFD700; color: #000; font-weight: bold; text-decoration: none; border-radius: 6px;">
-      Launch Your Raaswallet Dashboard
-    </a>
-  </div>
-
-  <div class="white-section">
-    <h2 class="section-title">Why Raasystem?</h2>
-    <div class="grid">
-      <div class="card"><h3>Scalable</h3><p>Handles thousands of transactions per second for global use cases.</p></div>
-      <div class="card"><h3>Secure</h3><p>Built on XDC blockchain with military-grade encryption and fault tolerance.</p></div>
-      <div class="card"><h3>Interoperable</h3><p>Connects to Ethereum, BSC, Polygon, and beyond using native bridges.</p></div>
-      <div class="card"><h3>Real-Time Oracle</h3><p>Live gold-backed price feeds and automated smart contract triggers.</p></div>
-    </div>
-  </div>
-
-  <div class="white-section">
-    <h2 class="section-title">Explore Our Ecosystem</h2>
-    <div class="grid">
-      <div class="card"><h3>Raaskoin (RAAS)</h3><p>Gold-backed utility token used for trading, payments, and staking.</p></div>
-      <div class="card"><h3>RABEX</h3><p>AI-driven trading engine for crypto and stock markets with liquidity automation.</p></div>
-      <div class="card"><h3>Raaspay</h3><p>Merchant platform for instant crypto-to-fiat conversion and debit card integration.</p></div>
-      <div class="card"><h3>Raaswallet</h3><p>Non-custodial wallet for managing RAAS, RAAK, and other assets securely.</p></div>
-    </div>
-  </div>
-
-  <div class="white-section">
-    <h2 class="section-title">Built For Africa and Beyond</h2>
-    <div class="grid">
-      <div class="card"><h3>Cross-Border Remittance</h3><p>Send funds instantly across borders with minimal fees.</p></div>
-      <div class="card"><h3>Tokenized Agriculture</h3><p>Empower farmers and investors through smart contract farming models.</p></div>
-      <div class="card"><h3>Micropayments</h3><p>Support micro-economies using low-cost, high-speed payments.</p></div>
-      <div class="card"><h3>Decentralized Credit</h3><p>Credit scoring and loan issuance powered by on-chain data.</p></div>
-    </div>
+    <p>Powered by RaasGenAI, Raasystem is your Intelligent Gateway to DeFi, AMM (Automated Market Maker), AI-Driven Autonomous Trading, and RWA Tokenization. Connect to RaasBridge — the Unique Platform that Unifies Crypto and Capital Markets into a Single Hybrid Exchange.</p>
+    <a href="raasbridge.html" class="cta-button">Get Started with RaasBridge</a>
   </div>
 </main>
 
@@ -234,7 +270,34 @@
   function toggleMenu() {
     document.getElementById('nav-list').classList.toggle('show');
   }
+
+  // Mobile dropdown tap support with parent link navigation
+  const dropdownLinks = document.querySelectorAll('.dropdown > a');
+
+  dropdownLinks.forEach(link => {
+    let tapped = false; // track first tap
+    link.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        const parent = link.parentElement;
+
+        if (!tapped) {
+          e.preventDefault();
+          // close other open dropdowns
+          document.querySelectorAll('.dropdown').forEach(d => {
+            if (d !== parent) d.classList.remove('show-dropdown');
+          });
+          parent.classList.toggle('show-dropdown');
+          tapped = true;
+          setTimeout(() => tapped = false, 500); // reset tap
+        } else {
+          // second tap goes to link
+          window.location.href = link.href;
+        }
+      }
+    });
+  });
 </script>
+
 <div id="footer-placeholder"></div>
 <script>
   fetch('footer.html')
@@ -244,5 +307,6 @@
     })
     .catch(error => console.error('Footer load error:', error));
 </script>
+
 </body>
 </html>

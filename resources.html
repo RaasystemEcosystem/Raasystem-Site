@@ -14,7 +14,6 @@
 
     header {
       background-color: #1a1a1a;
-      padding: 0;
       position: fixed;
       top: 0;
       width: 100%;
@@ -42,6 +41,11 @@
       margin: 0;
       padding: 0;
       list-style: none;
+      position: relative;
+    }
+
+    nav ul li {
+      position: relative;
     }
 
     nav ul li a {
@@ -50,6 +54,7 @@
       font-weight: 500;
       padding: 6px 10px;
       border-radius: 4px;
+      display: block;
     }
 
     nav ul li a:hover,
@@ -58,6 +63,34 @@
       color: #000;
     }
 
+    /* Dropdowns */
+    nav ul li.dropdown ul {
+      display: none;
+      position: absolute;
+      background-color: #111;
+      top: 35px;
+      left: 0;
+      padding: 10px 0;
+      list-style: none;
+      border-radius: 8px;
+      min-width: 200px;
+    }
+
+    nav ul li.dropdown:hover ul {
+      display: block;
+    }
+
+    nav ul li.dropdown ul li a {
+      padding: 8px 15px;
+      color: #fff;
+    }
+
+    nav ul li.dropdown ul li a:hover {
+      background-color: #FFD700;
+      color: #000;
+    }
+
+    /* Hamburger */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -89,6 +122,15 @@
 
       .hamburger {
         display: flex;
+      }
+
+      nav ul li.dropdown ul {
+        position: static;
+      }
+
+      nav ul li.dropdown.show-dropdown ul {
+        display: flex;
+        flex-direction: column;
       }
     }
 
@@ -177,14 +219,59 @@
       <nav>
         <ul id="nav-list">
           <li><a href="index.html">Home</a></li>
-          <li><a href="explorer.html">Explorer</a></li>
-          <li><a href="solutions.html">Solutions</a></li>
-          <li><a href="how-it-works.html">How It Works</a></li>
-          <li><a href="integrations.html">Integrations</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="get-started.html">Get Started</a></li>
-          <li><a href="resources.html" class="active">Resources</a></li>
-          <li><a href="login.html" style="background-color: #FFD700; color: #000; font-weight: bold; padding: 8px 14px; border-radius: 5px;">Login / Sign Up</a></li>
+          <li><a href="raasgenai.html">RaasGenAI</a></li>
+
+          <li class="dropdown">
+            <a href="ecosystem.html" aria-haspopup="true" aria-expanded="false">
+              Ecosystem <span class="arrow" aria-hidden="true">▾</span>
+            </a>
+            <ul>
+              <li><a href="raaswallet.html">Raaswallet</a></li>
+              <li><a href="rabex.html">RABEX (AI Exchange)</a></li>
+              <li><a href="raaspay.html">Raaspay</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="developers.html" aria-haspopup="true" aria-expanded="false">
+              Developers <span class="arrow" aria-hidden="true">▾</span>
+            </a>
+            <ul>
+              <li><a href="developers.html">Developer Center</a></li>
+              <li><a href="sdk.html">SDK & API</a></li>
+              <li><a href="smartcontracts.html">Smart Contracts</a></li>
+              <li><a href="oracle.html">Oracle Integration</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="partners.html" aria-haspopup="true" aria-expanded="false">
+              Partners <span class="arrow" aria-hidden="true">▾</span>
+            </a>
+            <ul>
+              <li><a href="partners.html">Our Partners</a></li>
+              <li><a href="aws.html">AWS Collaboration</a></li>
+              <li><a href="institutions.html">Institutions & Governments</a></li>
+              <li><a href="alliances.html">Strategic Alliances</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="resources.html" class="active" aria-haspopup="true" aria-expanded="true">
+              Resources <span class="arrow" aria-hidden="true">▾</span>
+            </a>
+            <ul>
+              <li><a href="resources.html" class="active">Overview</a></li>
+              <li><a href="whitepaper.html">Whitepaper</a></li>
+              <li><a href="docs.html">Documentation</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="login.html" style="background-color: #FFD700; color: #000; font-weight: bold; padding: 8px 14px; border-radius: 5px;">Login / Sign Up</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -211,7 +298,7 @@
       <div class="grid">
         <div class="card"><h3>Raaswallet APK</h3><p>Download the latest Android release of the Raaswallet app.</p></div>
         <div class="card"><h3>RABEX Web App</h3><p>Launch the AI trading engine and explore real-time crypto/gold markets.</p></div>
-        <div class="card"><h3>Smart Contract Templates</h3><p>Access GitHub repos for Raaskoin, token launchers, oracles, and oracles.</p></div>
+        <div class="card"><h3>Smart Contract Templates</h3><p>Access GitHub repos for Raaskoin, token launchers, and oracles.</p></div>
         <div class="card"><h3>Whitepapers & Audits</h3><p>Technical whitepapers, audits, and compliance resources.</p></div>
       </div>
     </div>
@@ -221,15 +308,31 @@
     function toggleMenu() {
       document.getElementById('nav-list').classList.toggle('show');
     }
+
+    // Mobile dropdown toggle
+    document.querySelectorAll('nav ul li.dropdown').forEach(dropdown => {
+      const link = dropdown.querySelector('a');
+      const arrow = dropdown.querySelector('.arrow');
+
+      if (arrow) {
+        arrow.addEventListener('click', e => {
+          e.preventDefault(); // prevent navigating
+          const expanded = link.getAttribute('aria-expanded') === 'true';
+          link.setAttribute('aria-expanded', String(!expanded));
+          dropdown.classList.toggle('show-dropdown');
+        });
+      }
+    });
   </script>
-<div id="footer-placeholder"></div>
-<script>
-  fetch('footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer-placeholder').innerHTML = data;
-    })
-    .catch(error => console.error('Footer load error:', error));
-</script>
+
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      })
+      .catch(error => console.error('Footer load error:', error));
+  </script>
 </body>
 </html>

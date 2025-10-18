@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RaasGenAI – Raasystem</title>
+  <style>
+    body {margin:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#000; color:#fff;}
+    header {background:#1a1a1a; position:fixed; top:0; width:100%; z-index:1000;}
+    .header-container {display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto; padding:16px 20px;}
+    .logo {font-size:1.5rem; font-weight:bold; color:#FFD700;}
+    nav ul {display:flex; gap:15px; margin:0; padding:0; list-style:none; position:relative;}
+    nav ul li {position:relative;}
+    nav ul li a {color:#fff; text-decoration:none; font-weight:500; padding:6px 10px; border-radius:4px; display:block;}
+    nav ul li a:hover, nav ul li a.active {background:#FFD700; color:#000;}
+    nav ul li.dropdown ul {display:none; position:absolute; top:35px; left:0; background:#111; padding:10px 0; list-style:none; border-radius:8px; min-width:200px;}
+    nav ul li.dropdown ul li a {padding:8px 15px; color:#fff;}
+    nav ul li.dropdown ul li a:hover, nav ul li.dropdown ul li a.active {background:#FFD700; color:#000;}
+    .hamburger {display:none; flex-direction:column; gap:4px; cursor:pointer;}
+    .hamburger div {width:24px; height:3px; background:#fff;}
+    @media(max-width:768px){
+      nav ul {display:none; flex-direction:column; position:absolute; top:58px; right:20px; background:#111; border-radius:8px; padding:10px;}
+      nav ul.show {display:flex;}
+      .hamburger {display:flex;}
+      nav ul li ul {position:static; display:none; padding:0;}
+      nav ul li.show-dropdown > ul {display:block;}
+      nav ul li ul li a {padding-left:30px;}
+    }
+    .container {max-width:1200px; margin:140px auto 40px; padding:20px; text-align:center;}
+    .container h1 {font-size:3rem; margin-bottom:15px; color:#FFD700;}
+    .container p {font-size:1.2rem; max-width:800px; margin:0 auto; line-height:1.6; color:#ddd;}
+    .white-section {background:#fff; color:#000; margin:40px auto; padding:40px 20px; border-radius:8px; max-width:1200px;}
+    .section-title {font-size:2rem; margin-bottom:20px; color:#222; text-align:center;}
+    .grid {display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+    @media(max-width:768px){.grid{grid-template-columns:1fr;}}
+    .card {background:#f9f9f9; border-radius:8px; padding:20px; box-shadow:0 2px 5px rgba(0,0,0,0.1); text-align:left; transition: transform 0.3s, box-shadow 0.3s;}
+    .card:hover {transform:translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+    .card h3 {margin-top:0; color:#333;}
+    footer {background:#111; text-align:center; padding:20px; color:#fff;}
+    footer a {color:#FFD700; text-decoration:none; margin:0 10px;}
+    footer a:hover{text-decoration:underline;}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo">Raasystem</div>
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <div></div><div></div><div></div>
+    </button>
+    <nav>
+      <ul id="nav-list">
+        <li><a href="index.html">Home</a></li>
+
+        <li class="dropdown">
+          <a href="ecosystem.html" aria-haspopup="true" aria-expanded="false">Ecosystem ▾</a>
+          <ul>
+            <li><a href="raaswallet.html">Raaswallet</a></li>
+            <li><a href="rabex.html">RABEX (AI Exchange)</a></li>
+            <li><a href="raaspay.html">Raaspay</a></li>
+          </ul>
+        </li>
+
+        <li><a href="raasgenai.html" class="active">RaasGenAI</a></li>
+
+        <li class="dropdown">
+          <a href="developers.html" aria-haspopup="true" aria-expanded="false">Developers ▾</a>
+          <ul>
+            <li><a href="developers.html">Developer Center</a></li>
+            <li><a href="sdk.html">SDK & API</a></li>
+            <li><a href="smartcontracts.html">Smart Contracts</a></li>
+            <li><a href="oracle.html">Oracle Integration</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="partners.html" aria-haspopup="true" aria-expanded="false">Partners ▾</a>
+          <ul>
+            <li><a href="partners.html">Our Partners</a></li>
+            <li><a href="aws.html">AWS Collaboration</a></li>
+            <li><a href="institutions.html">Institutions & Governments</a></li>
+            <li><a href="alliances.html">Strategic Alliances</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="resources.html" aria-haspopup="true" aria-expanded="false">Resources ▾</a>
+          <ul>
+            <li><a href="resources.html">Overview</a></li>
+            <li><a href="whitepaper.html">Whitepaper</a></li>
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </li>
+
+        <li><a href="login.html" style="background:#FFD700;color:#000;font-weight:bold;padding:8px 14px;border-radius:5px;">Login / Sign Up</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h1>RaasGenAI</h1>
+    <p><span style="font-weight:bold;">AI-Engine</span> Powering <span style="font-weight:bold;">Raasystem</span> in Real-Time: <span style="font-weight:bold;">Rabex, Raaswallet, Raaspay</span>. Global Insights, <span style="font-weight:bold;">Automated Market Making</span>, <span style="font-weight:bold;">Liquidity Optimization</span>, and <span style="font-weight:bold;">Intelligent Arbitrage Detection</span>.</p>
+  </div>
+
+  <div class="white-section">
+    <h2 class="section-title">Core Features</h2>
+    <div class="grid">
+      <div class="card"><h3>AMM (Automated Market Maker)</h3><p>Set your trading criteria, and AMM optimizes and executes trades autonomously in real-time.</p></div>
+      <div class="card"><h3>Liquidity Optimization</h3><p>Efficient fund allocation, instant transaction execution, and minimized slippage.</p></div>
+      <div class="card"><h3>Intelligent Payments</h3><p>Seamless AI-powered crypto and fiat transactions worldwide.</p></div>
+      <div class="card"><h3>Raasystem - CTO</h3><p>Generative AI drives innovation, delivering insights and technological leadership across the platform.</p></div>
+    </div>
+  </div>
+
+  <div class="white-section">
+    <h2 class="section-title">User Experience</h2>
+    <div class="grid">
+      <div class="card"><h3>Seamless Wallet Integration</h3><p>Access Raaswallet directly through RaasGenAI without switching platforms.</p></div>
+      <div class="card"><h3>Intelligent Notifications</h3><p>Receive AI-generated alerts for optimal trading and payments.</p></div>
+      <div class="card"><h3>Secure & Transparent</h3><p>All actions are executed on-chain with full transparency and security.</p></div>
+      <div class="card"><h3>Mobile & Web Access</h3><p>Full-featured access on desktop and mobile devices for users on the go.</p></div>
+    </div>
+  </div>
+</main>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navList = document.getElementById('nav-list');
+
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', String(!expanded));
+    navList.classList.toggle('show');
+  });
+
+  // Mobile dropdown toggle
+  document.querySelectorAll('nav ul li.dropdown > a').forEach(link => {
+    link.addEventListener('click', e => {
+      if(window.innerWidth <= 768){
+        e.preventDefault();
+        const parent = link.parentElement;
+        const expanded = link.getAttribute('aria-expanded') === 'true';
+        link.setAttribute('aria-expanded', String(!expanded));
+        parent.classList.toggle('show-dropdown');
+      }
+    });
+  });
+
+  // Reset dropdowns on resize
+  window.addEventListener('resize', () => {
+    if(window.innerWidth > 768){
+      navList.classList.remove('show');
+      document.querySelectorAll('.dropdown').forEach(d => {
+        d.classList.remove('show-dropdown');
+        d.querySelector('a').setAttribute('aria-expanded','false');
+      });
+    }
+  });
+
+  // Highlight current link automatically
+  const currentUrl = window.location.pathname.split('/').pop();
+  document.querySelectorAll('nav a').forEach(a=>{
+    if(a.getAttribute('href')===currentUrl){
+      a.classList.add('active');
+      const parentDropdown=a.closest('.dropdown');
+      if(parentDropdown){
+        parentDropdown.querySelector('a').classList.add('active');
+        parentDropdown.classList.add('show-dropdown');
+      }
+    }
+  });
+</script>
+
+<div id="footer-placeholder"></div>
+<script>
+  fetch('footer.html')
+    .then(res=>res.text())
+    .then(data=>document.getElementById('footer-placeholder').innerHTML=data)
+    .catch(err=>console.error('Footer load error:',err));
+</script>
+</body>
+</html>

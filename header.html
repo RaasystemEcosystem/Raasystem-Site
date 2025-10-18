@@ -1,36 +1,68 @@
-<!-- Header Section -->
+<!-- Unified Header for All Pages -->
 <header>
   <div class="header-container">
     <div class="logo">Raasystem</div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
     <nav>
-      <div class="menu-toggle" id="mobile-menu">&#9776;</div>
-      <ul class="nav-list" id="nav-list">
+      <ul id="nav-list">
         <li><a href="index.html">Home</a></li>
-        <li><a href="solutions.html">Solutions</a></li>
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="integrations.html">Integrations</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="get-started.html">Get Started</a></li>
-        <li><a href="resources.html">Resources</a></li>
+
         <li class="dropdown">
-          <a href="#" class="active">Explore</a>
-          <div class="dropdown-content">
-            <div class="column">
-              <a href="#">Blog</a>
-              <a href="#">Contact Us</a>
-              <a href="#">FAQs</a>
-              <a href="#">Media Kit</a>
-            </div>
-            <div class="column">
-              <a href="#">Community</a>
-              <a href="#">Careers</a>
-              <a href="#">Roadmap</a>
-              <a href="#">Terms & Privacy</a>
-            </div>
-          </div>
+          <a href="ecosystem.html">Ecosystem ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="raaswallet.html">Raaswallet</a></li>
+            <li><a href="rabex.html">RABEX (AI Exchange)</a></li>
+            <li><a href="raaspay.html">Raaspay</a></li>
+          </ul>
         </li>
-        <li><a href="login.html">Login</a></li>
+
+        <li><a href="raasgenai.html">RaasGenAI</a></li>
+
+        <li class="dropdown">
+          <a href="developers.html">Developers ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="developers.html">Developer Center</a></li>
+            <li><a href="sdk.html">SDK & API</a></li>
+            <li><a href="smartcontracts.html">Smart Contracts</a></li>
+            <li><a href="oracle.html">Oracle Integration</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="partners.html">Partners ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="partners.html">Our Partners</a></li>
+            <li><a href="aws.html">AWS Collaboration</a></li>
+            <li><a href="institutions.html">Institutions & Governments</a></li>
+            <li><a href="alliances.html">Strategic Alliances</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="resources.html">Resources ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="resources.html">Overview</a></li>
+            <li><a href="whitepaper.html">Whitepaper</a></li>
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="login.html" style="background-color: #FFD700; color: #000; font-weight: bold; padding: 8px 14px; border-radius: 5px;">
+            Login / Sign Up
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
 </header>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('nav-list').classList.toggle('show');
+  }
+</script>

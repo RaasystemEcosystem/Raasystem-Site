@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RaasBridge – Raasystem</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+    header {
+      background-color: #1a1a1a;
+      padding: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 20px;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #FFD700;
+    }
+    nav ul {
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      position: relative;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 4px;
+      display: block;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #FFD700;
+      color: #000;
+    }
+    /* Dropdowns */
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      background-color: #111;
+      top: 35px;
+      left: 0;
+      padding: 10px 0;
+      list-style: none;
+      border-radius: 8px;
+      min-width: 200px;
+    }
+    nav ul li:hover ul {
+      display: block;
+    }
+    nav ul li ul li a {
+      padding: 8px 15px;
+      color: #fff;
+    }
+    nav ul li ul li a:hover {
+      background-color: #FFD700;
+      color: #000;
+    }
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+    .hamburger div {
+      width: 24px;
+      height: 3px;
+      background: #fff;
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #111;
+        position: absolute;
+        top: 58px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 8px;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+      nav ul li ul {
+        position: static;
+      }
+    }
+    .container {
+      max-width: 1200px;
+      margin: 140px auto 40px;
+      padding: 20px;
+      text-align: center;
+    }
+    .container h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: #FFD700;
+    }
+    .container p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      color: #ddd;
+    }
+    .white-section {
+      background-color: #fff;
+      color: #000;
+      margin: 40px auto;
+      padding: 40px 20px;
+      border-radius: 8px;
+      max-width: 1200px;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #222;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .card {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #333;
+    }
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+    }
+    footer a {
+      color: #FFD700;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo">Raasystem</div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+    <nav>
+      <ul id="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="raasbridge.html" class="active">RaasBridge</a></li>
+        <li><a href="#">Ecosystem ▾</a>
+          <ul>
+            <li><a href="raaswallet.html">Raaswallet</a></li>
+            <li><a href="rabex.html">RABEX (AI Exchange)</a></li>
+            <li><a href="raaspay.html">Raaspay</a></li>
+          </ul>
+        </li>
+        <li><a href="raasgenai.html">RaasGenAI</a></li>
+        <li><a href="#">Developers ▾</a>
+          <ul>
+            <li><a href="developers.html">Developer Center</a></li>
+            <li><a href="sdk.html">SDK & API</a></li>
+            <li><a href="smartcontracts.html">Smart Contracts</a></li>
+            <li><a href="oracle.html">Oracle Integration</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Partners ▾</a>
+          <ul>
+            <li><a href="partners.html">Our Partners</a></li>
+            <li><a href="aws.html">AWS Collaboration</a></li>
+            <li><a href="institutions.html">Institutions & Governments</a></li>
+            <li><a href="alliances.html">Strategic Alliances</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Resources ▾</a>
+          <ul>
+            <li><a href="resources.html">Overview</a></li>
+            <li><a href="whitepaper.html">Whitepaper</a></li>
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </li>
+        <li><a href="login.html" style="background-color: #FFD700; color: #000; font-weight: bold; padding: 8px 14px; border-radius: 5px;">Login / Sign Up</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h1>RaasBridge Onboarding</h1>
+    <p>
+      Your intelligent gateway into the Raasystem ecosystem. Seamlessly connect to Raaswallet, RABEX, RaasGenAI, and Raaspay from a unified AI-powered dashboard.
+    </p>
+  </div>
+
+  <div class="white-section">
+    <h2 class="section-title">Get Started in 3 Simple Steps</h2>
+    <div class="grid">
+      <div class="card"><h3>Step 1 – Connect Wallet or Account</h3><p>Securely link your Raaswallet or create one instantly to begin your journey.</p><a href="raaswallet.html" class="block bg-yellow-500 text-black px-4 py-2 rounded font-semibold hover:bg-yellow-400">Connect Wallet</a></div>
+      <div class="card"><h3>Step 2 – Discover Your Modules</h3><p>Access RABEX, RaasGenAI, or Raaspay directly from your unified dashboard.</p><a href="#gateway-modules" class="block bg-yellow-500 text-black px-4 py-2 rounded font-semibold hover:bg-yellow-400">Explore Modules</a></div>
+      <div class="card"><h3>Step 3 – Start Transacting</h3><p>Trade, pay, or tokenize assets seamlessly across the hybrid AI-driven network.</p><a href="#gateway-modules" class="block bg-yellow-500 text-black px-4 py-2 rounded font-semibold hover:bg-yellow-400">Enter Dashboard</a></div>
+    </div>
+  </div>
+
+  <div class="white-section">
+    <h2 class="section-title">Why RaasBridge?</h2>
+    <p style="text-align:center; max-width:900px; margin:auto; color:#222;">RaasBridge centralizes your access to all Raasystem services while providing AI-driven insights and real-time interoperability between all modules. One entry, total control.</p>
+  </div>
+
+<!-- Gateway Modules Section -->
+<section id="gateway-modules" style="background-color: #000; padding: 60px 20px;">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 style="color: #FFD700; font-size: 2.5rem; font-weight: bold; margin-bottom: 40px;">
+      Choose Your Gateway Module
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8" style="margin-top: 40px;">
+
+      <!-- Raaswallet Card -->
+      <div style="background-color: #fff; color: #000; border-radius: 8px; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;">
+        <h3 style="color: #000; font-size: 1.25rem; margin-bottom: 10px;">Raaswallet</h3>
+        <p style="margin-bottom: 15px;">Your Non-Custodial Entry into Raasystem.</p>
+        <a href="raaswallet.html" style="display: inline-block; background-color: #FFD700; color: #000; padding: 8px 14px; border-radius: 5px; font-weight: bold; text-decoration: none;">Get Your Wallet</a>
+      </div>
+
+      <!-- Raaspay Card -->
+      <div style="background-color: #fff; color: #000; border-radius: 8px; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;">
+        <h3 style="color: #000; font-size: 1.25rem; margin-bottom: 10px;">Raaspay</h3>
+        <p style="margin-bottom: 15px;">Powering Seamless and Borderless Payments.</p>
+        <a href="raaspay.html" style="display: inline-block; background-color: #FFD700; color: #000; padding: 8px 14px; border-radius: 5px; font-weight: bold; text-decoration: none;">Get Raaspay Wallet</a>
+      </div>
+
+      <!-- RABEX Card -->
+      <div style="background-color: #fff; color: #000; border-radius: 8px; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;">
+        <h3 style="color: #000; font-size: 1.25rem; margin-bottom: 10px;">RABEX</h3>
+        <p style="margin-bottom: 15px;">Launch the AI Trading Engine - Your Automated Market Maker.</p>
+        <a href="rabex.html" style="display: inline-block; background-color: #FFD700; color: #000; padding: 8px 14px; border-radius: 5px; font-weight: bold; text-decoration: none;">Launch RABEX</a>
+      </div>
+
+      <!-- RaasGenAI Card -->
+      <div style="background-color: #fff; color: #000; border-radius: 8px; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;">
+        <h3 style="color: #000; font-size: 1.25rem; margin-bottom: 10px;">RaasGenAI</h3>
+        <p style="margin-bottom: 15px;">AI-Engine powering intelligent trading, payments, and interoperability.</p>
+        <a href="raasgenai.html" style="display: inline-block; background-color: #FFD700; color: #000; padding: 8px 14px; border-radius: 5px; font-weight: bold; text-decoration: none;">Explore RaasGenAI</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('nav-list').classList.toggle('show');
+  }
+</script>
+
+<div id="footer-placeholder"></div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    })
+    .catch(error => console.error('Footer load error:', error));
+</script>
+</body>
+</html>
