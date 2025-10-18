@@ -166,6 +166,20 @@
       transform: translateY(-5px);
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
+    /* RaasBridge Highlight */
+    .card-raasbridge {
+      background-color: #fff;
+      color: #000;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1), 0 0 15px rgba(255,215,0,0.6);
+      transition: transform 0.3s, box-shadow 0.3s;
+      transform: scale(1.05);
+    }
+    .card-raasbridge:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(255,215,0,0.9);
+    }
     .card h3 {
       margin-top: 0;
       color: #333;
@@ -250,7 +264,7 @@
     <div class="grid">
       <div class="card"><h3>Step 1 – Connect Wallet or Account</h3><p>Securely link your Raaswallet or create one instantly to begin your journey.</p><a href="raaswallet.html" class="block bg-yellow-500 text-black px-4 py-2 rounded font-semibold hover:bg-yellow-400">Connect Wallet</a></div>
       <div class="card"><h3>Step 2 – Discover Your Modules</h3><p>Access RABEX, RaasGenAI, or Raaspay directly from your unified dashboard.</p><a href="#gateway-modules" class="block bg-yellow-500 text-black px-4 py-2 rounded font-semibold hover:bg-yellow-400">Explore Modules</a></div>
-      <div class="card"><h3>Step 3 – Start Transacting</h3><p>Trade, pay, or tokenize assets seamlessly across the hybrid AI-driven network.</p><a href="#gateway-modules" class="block bg-yellow-500 text-black px-4 py-2 rounded font-semibold hover:bg-yellow-400">Enter Dashboard</a></div>
+      <div class="card card-raasbridge"><h3>Step 3 – Enter RaasBridge Dashboard</h3><p>Monitor balances, trading activity, AI insights, and cross-module transactions in one place.</p><a href="http://raasbridge-ui.s3-website-us-east-1.amazonaws.com/" target="_blank" class="block bg-yellow-500 text-black px-4 py-2 rounded font-semibold hover:bg-yellow-400">Enter Dashboard</a></div>
     </div>
   </div>
 
@@ -259,46 +273,46 @@
     <p style="text-align:center; max-width:900px; margin:auto; color:#222;">RaasBridge centralizes your access to all Raasystem services while providing AI-driven insights and real-time interoperability between all modules. One entry, total control.</p>
   </div>
 
-<!-- Gateway Modules Section -->
-<section id="gateway-modules" style="background-color: #000; padding: 60px 20px;">
-  <div class="max-w-6xl mx-auto text-center">
-    <h2 style="color: #FFD700; font-size: 2.5rem; font-weight: bold; margin-bottom: 40px;">
-      Choose Your Gateway Module
-    </h2>
+  <!-- Gateway Modules Section -->
+  <section id="gateway-modules" style="background-color: #000; padding: 60px 20px;">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 style="color: #FFD700; font-size: 2.5rem; font-weight: bold; margin-bottom: 40px;">
+        Choose Your Gateway Module
+      </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8" style="margin-top: 40px;">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8" style="margin-top: 40px;">
 
-      <!-- Raaswallet Card -->
-      <div style="background-color: #fff; color: #000; border-radius: 8px; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;">
-        <h3 style="color: #000; font-size: 1.25rem; margin-bottom: 10px;">Raaswallet</h3>
-        <p style="margin-bottom: 15px;">Your Non-Custodial Entry into Raasystem.</p>
-        <a href="raaswallet.html" style="display: inline-block; background-color: #FFD700; color: #000; padding: 8px 14px; border-radius: 5px; font-weight: bold; text-decoration: none;">Get Your Wallet</a>
+        <!-- Raaswallet Card -->
+        <div class="card">
+          <h3>Raaswallet</h3>
+          <p>Your Non-Custodial Entry into Raasystem.</p>
+          <a href="raaswallet.html" style="display:inline-block; background-color:#FFD700; color:#000; padding:8px 14px; border-radius:5px; font-weight:bold; text-decoration:none;">Get Your Wallet</a>
+        </div>
+
+        <!-- Raaspay Card -->
+        <div class="card">
+          <h3>Raaspay</h3>
+          <p>Powering Seamless and Borderless Payments.</p>
+          <a href="raaspay.html" style="display:inline-block; background-color:#FFD700; color:#000; padding:8px 14px; border-radius:5px; font-weight:bold; text-decoration:none;">Get Raaspay Wallet</a>
+        </div>
+
+        <!-- RABEX Card -->
+        <div class="card">
+          <h3>RABEX</h3>
+          <p>Launch the AI Trading Engine - Your Automated Market Maker.</p>
+          <a href="rabex.html" style="display:inline-block; background-color:#FFD700; color:#000; padding:8px 14px; border-radius:5px; font-weight:bold; text-decoration:none;">Launch RABEX</a>
+        </div>
+
+        <!-- RaasBridge Dashboard Card (Highlighted) -->
+        <div class="card-raasbridge">
+          <h3>RaasBridge Unified Dashboard</h3>
+          <p>Monitor balances, trading activity, AI insights, and cross-module transactions in one place.</p>
+          <a href="http://raasbridge-ui.s3-website-us-east-1.amazonaws.com/" target="_blank" style="display:inline-block; background-color:#FFD700; color:#000; padding:8px 14px; border-radius:5px; font-weight:bold; text-decoration:none;">Enter Dashboard</a>
+        </div>
+
       </div>
-
-      <!-- Raaspay Card -->
-      <div style="background-color: #fff; color: #000; border-radius: 8px; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;">
-        <h3 style="color: #000; font-size: 1.25rem; margin-bottom: 10px;">Raaspay</h3>
-        <p style="margin-bottom: 15px;">Powering Seamless and Borderless Payments.</p>
-        <a href="raaspay.html" style="display: inline-block; background-color: #FFD700; color: #000; padding: 8px 14px; border-radius: 5px; font-weight: bold; text-decoration: none;">Get Raaspay Wallet</a>
-      </div>
-
-      <!-- RABEX Card -->
-      <div style="background-color: #fff; color: #000; border-radius: 8px; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;">
-        <h3 style="color: #000; font-size: 1.25rem; margin-bottom: 10px;">RABEX</h3>
-        <p style="margin-bottom: 15px;">Launch the AI Trading Engine - Your Automated Market Maker.</p>
-        <a href="rabex.html" style="display: inline-block; background-color: #FFD700; color: #000; padding: 8px 14px; border-radius: 5px; font-weight: bold; text-decoration: none;">Launch RABEX</a>
-      </div>
-
-      <!-- RaasGenAI Card -->
-      <div style="background-color: #fff; color: #000; border-radius: 8px; padding: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;">
-        <h3 style="color: #000; font-size: 1.25rem; margin-bottom: 10px;">RaasGenAI</h3>
-        <p style="margin-bottom: 15px;">AI-Engine powering intelligent trading, payments, and interoperability.</p>
-        <a href="raasgenai.html" style="display: inline-block; background-color: #FFD700; color: #000; padding: 8px 14px; border-radius: 5px; font-weight: bold; text-decoration: none;">Explore RaasGenAI</a>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
 </main>
 
