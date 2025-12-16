@@ -1,311 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Raasystem – AI-Driven Financial Ecosystem</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #000;
-      color: #fff;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raaswallet – Raasystem</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-    header {
-      background-color: #1a1a1a;
-      padding: 0;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
+<!-- AOS Library -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 16px 20px;
-    }
+<style>
+  body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #0d0d0d 0%, #121212 100%);
+    color:#fff;
+    margin:0;
+    display:flex;
+  }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #FFD700;
-    }
+  header {
+    width:100%;
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #333;
+    position:fixed;
+    top:0;
+    z-index:1000;
+    background:#0d0d0d;
+  }
 
-    nav ul {
-      display: flex;
-      gap: 15px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
+  .logo {font-size:1.8rem; font-weight:bold; color:#FFD700;}
+  nav a {margin-left:20px; color:white; text-decoration:none; font-weight:500;}
+  nav a:hover {color:#FFD700;}
 
-    nav ul li {
-      position: relative;
-    }
+  main {margin-left:250px; padding:120px 40px 40px 40px; flex:1; scroll-behavior:smooth;}
 
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 6px 10px;
-      border-radius: 4px;
-      display: block;
-    }
+  /* Sidebar */
+  .sidebar {
+    width:250px;
+    background:#111;
+    position:fixed;
+    top:0;
+    left:0;
+    height:100%;
+    padding-top:120px;
+    display:flex;
+    flex-direction:column;
+  }
+  .sidebar a {
+    color:#fff;
+    text-decoration:none;
+    padding:15px 20px;
+    font-weight:normal;
+    display:block;
+    border-radius:6px;
+    margin:2px 10px;
+    transition: all 0.3s;
+  }
+  .sidebar a:hover {background:#222; color:#FFD700;}
+  .sidebar a.active {background:#FFD700; color:#000; font-weight:bold;}
 
-    nav ul li a:hover,
-    nav ul li a.active {
-      background-color: #FFD700;
-      color: #000;
-    }
+  /* Card grid */
+  .card-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-bottom:40px;
+  }
 
-    /* Dropdown Menu */
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 38px;
-      left: 0;
-      background-color: #111;
-      padding: 10px 0;
-      border-radius: 6px;
-      min-width: 200px;
-      z-index: 1000;
-    }
+  .card-grid .card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    padding: 20px;
+    color: #fff;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  }
 
-    .dropdown-menu li a {
-      padding: 8px 16px;
-      color: #fff;
-      text-decoration: none;
-    }
+  .card-grid .card:nth-child(even) {
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.15), rgba(3, 169, 244, 0.15));
+  }
 
-    .dropdown-menu li a:hover {
-      background-color: #FFD700;
-      color: #000;
-    }
+  .card-grid .card h3 {
+    margin-top: 0;
+    color: #FFD700;
+    font-weight: 700;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 
-    nav ul li:hover .dropdown-menu {
-      display: block;
-    }
+  .card-grid .card h3::before { content: "🔹"; }
+  .card-grid .card p { color: #e0e0e0; font-weight: 500; margin-top: 8px; }
 
-    /* Mobile Navigation */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-    }
+  .card-grid .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.25);
+  }
 
-    .hamburger div {
-      width: 24px;
-      height: 3px;
-      background: #fff;
-    }
+  /* Sections */
+  section h1, section h2 {font-weight:bold;}
+  section h1.intro {color:#FFD700; text-align:center; font-size:2rem; margin-bottom:20px;}
+  h2.section-title {margin-bottom:20px; font-size:1.8rem; text-align:center; color:#FFD700;}
 
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #111;
-        position: absolute;
-        top: 58px;
-        right: 20px;
-        padding: 10px;
-        border-radius: 8px;
-      }
+  /* Top navigation items */
+  nav {display: flex; align-items: center; gap: 20px;}
+  nav .nav-item {text-decoration: none; color: white; font-weight: 500; padding: 6px 12px; border-radius: 6px; transition: all 0.2s ease;}
+  nav .nav-item.active, nav .nav-item:hover {background-color: #FFD700; color: #000;}
+  nav .nav-item.login {font-weight: 700; border: 1px solid #FFD700;}
+  nav .nav-item.login:hover {background-color: #FFD700; color: #000;}
 
-      nav ul.show {
-        display: flex;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .dropdown-menu {
-        position: relative;
-        top: 0;
-        left: 0;
-        background-color: #111;
-        border-radius: 0;
-        padding: 0;
-      }
-
-      nav ul li:hover .dropdown-menu {
-        display: none;
-      }
-
-      nav ul li.show-dropdown .dropdown-menu {
-        display: block;
-      }
-    }
-
-    /* Hero Section */
-    .hero {
-      max-width: 1200px;
-      margin: 140px auto 60px;
-      padding: 0 20px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      color: #FFD700;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 1.3rem;
-      color: #ddd;
-      max-width: 900px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 14px 30px;
-      background-color: #FFD700;
-      color: #000;
-      font-weight: bold;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-
-    .cta-button:hover {
-      background-color: #e6c200;
-    }
-
-    footer {
-      background-color: #111;
-      text-align: center;
-      padding: 20px;
-      color: #fff;
-    }
-
-    footer a {
-      color: #FFD700;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  /* Wallet card */
+  .wallet-card {position: relative; overflow: hidden;}
+  .wallet-card .card-header {display: flex; justify-content: space-between; align-items: center;}
+  .wallet-card .badge {background-color: #3399FF; color: #fff; font-size: 0.75rem; font-weight: 600; padding: 4px 8px; border-radius: 12px; text-transform: uppercase;}
+  .wallet-card a.wallet-cta {display: inline-block; margin-top: 12px; padding: 10px 18px; background-color: #007BFF !important; color: #fff !important; font-weight: 600; border-radius: 8px; text-decoration: none; transition: all 0.2s ease;}
+  .wallet-card a.wallet-cta:hover {background-color: #0056b3 !important; transform: translateY(-2px);}
+</style>
 </head>
 <body>
 
+<!-- Sidebar -->
+<div class="sidebar">
+  <a href="#core-platforms" class="active">Core Platforms</a>
+  <a href="#operational-platforms">Operational Platforms</a>
+  <a href="#ecosystem-interfaces">Ecosystem Interfaces</a>
+  <a href="#raas-studio">Raastudio</a>
+  <a href="#two-token-economy">Two-Token Economy</a>
+  <a href="#developers">Developers</a>
+  <a href="#learn">Learn</a>
+  <a href="#partners">Partners</a>
+  <a href="#ecosystem-diagrams">Ecosystem Diagrams</a>
+</div>
+
+<!-- Header -->
 <header>
-  <div class="header-container">
-    <div class="logo">Raasystem</div>
-    <div class="hamburger" onclick="toggleMenu()">
-      <div></div><div></div><div></div>
-    </div>
-    <nav>
-      <ul id="nav-list">
-        <li><a href="index.html" class="active">Home</a></li>
-
-        <li class="dropdown">
-          <a href="ecosystem.html">Ecosystem ▾</a>
-          <ul class="dropdown-menu">
-            <li><a href="raaswallet.html">Raaswallet</a></li>
-            <li><a href="rabex.html">RABEX (AI Exchange)</a></li>
-            <li><a href="raaspay.html">Raaspay</a></li>
-          </ul>
-        </li>
-
-        <li><a href="raasgenai.html">RaasGenAI</a></li>
-
-        <li class="dropdown">
-          <a href="developers.html">Developers ▾</a>
-          <ul class="dropdown-menu">
-            <li><a href="developers.html">Developer Center</a></li>
-            <li><a href="sdk.html">SDK & API</a></li>
-            <li><a href="smartcontracts.html">Smart Contracts</a></li>
-            <li><a href="oracle.html">Oracle Integration</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="partners.html">Partners ▾</a>
-          <ul class="dropdown-menu">
-            <li><a href="partners.html">Our Partners</a></li>
-            <li><a href="aws.html">AWS Collaboration</a></li>
-            <li><a href="institutions.html">Institutions & Governments</a></li>
-            <li><a href="alliances.html">Strategic Alliances</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="resources.html">Resources ▾</a>
-          <ul class="dropdown-menu">
-            <li><a href="resources.html">Overview</a></li>
-            <li><a href="whitepaper.html">Whitepaper</a></li>
-            <li><a href="docs.html">Documentation</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-          </ul>
-        </li>
-
-        <li><a href="login.html" style="background-color: #FFD700; color: #000; font-weight: bold; padding: 8px 14px; border-radius: 5px;">Login / Sign Up</a></li>
-      </ul>
-    </nav>
-  </div>
+  <div class="logo">Raasystem</div>
+  <nav>
+    <a href="#home" class="nav-item active">Home</a>
+    <a href="#raas-explorer" class="nav-item">RaasExplorer</a>
+    <a href="#support" class="nav-item">Support</a>
+    <a href="login.html" style="background:#FFD700;color:#000;font-weight:bold;padding:8px 14px;border-radius:5px;">Login</a>
+  </nav>
 </header>
 
 <main>
-  <div class="hero">
-    <h1>Welcome to Raasystem</h1>
-    <p>Powered by RaasGenAI, Raasystem is your Intelligent Gateway to DeFi, AMM (Automated Market Maker), AI-Driven Autonomous Trading, and RWA Tokenization. Connect to RaasBridge — the Unique Platform that Unifies Crypto and Capital Markets into a Single Hybrid Exchange.</p>
-    <a href="raasbridge.html" class="cta-button">Get Started with RaasBridge</a>
+  <!-- Intro Section -->
+  <section data-aos="fade-up">
+    <h1 class="intro">One Wallet. One Unified Dashboard. One Infrastructure.</h1>
+    <p class="text-center text-gray-300 text-xl mt-4 leading-relaxed font-normal mb-16">
+      Powered by RaasGenAI, Raasystem unifies DeFi, AI-driven trading, and tokenized assets.
+      <br/>
+      Explore the ecosystem that brings crypto, capital markets, and real-world assets together.
+    </p>
+  </section>
+
+  <!-- Core Platforms -->
+  <section id="core-platforms" data-aos="fade-right">
+    <h2 class="section-title">Core Platforms</h2>
+    <div class="card-grid">
+      <div class="card" data-aos="fade-up" data-aos-delay="0"><h3>RaasMatrix</h3><p>Cross-Hybrid Blockchain Supporting Global Infrastructure & AI-Powered Automation.</p></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="100"><h3>RaasBridge</h3><p>Cross-Chain & Cross-Asset Bridge and Interoperability & RWA Tokenization.</p></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="200"><h3>RaasGenAI</h3><p>Generative AI - Raasystem CTO, Predictive Analytics & Savvy Insights.</p></div>
+    </div>
+  </section>
+
+  <!-- Operational Platforms -->
+<section id="operational-platforms" data-aos="fade-left">
+  <h2 class="section-title">Operational Platforms</h2>
+  <div class="card-grid" style="grid-template-columns: repeat(2, 1fr);">
+    <div class="card"><h3>RaasWallet</h3><p>Secure Multi-Asset Non-Custodial Wallet & Gateway into Raasystem Ecosystem.</p></div>
+    <div class="card"><h3>RABEX</h3><p>Autonomous Market-Making (AMM) and User AI-Guided Trading in Real Time.</p></div>
+    <div class="card"><h3>Raaspay</h3><p>Crypto-to-Fiat & Fiat-to-Crypto and Merchant Payments, POS & Raas Debit Card.</p></div>
+    <div class="card"><h3>RaasGovern</h3><p>AI-Driven Risk, Compliance & Exposure Intelligence Layer.</p></div>
   </div>
+</section>
+
+<section id="ecosystem-interfaces" data-aos="fade-up">
+  <h2 class="section-title">Ecosystem Interfaces</h2>
+  <div class="card-grid" style="grid-template-columns: repeat(2, 1fr);">
+    <div class="card">
+      <h3>RaasExplorer</h3>
+      <p>Unified Blockchain, Asset & Transaction Explorer for the Raasystem Network.</p>
+    </div>
+    <div class="card">
+      <h3>Raascan</h3>
+      <p>Advanced Analytics, Network Intelligence & Real-Time Protocol Monitoring.</p>
+    </div>
+  </div>
+</section>
+
+<section id="raas-studio" data-aos="zoom-in">
+  <h2 class="section-title">Raastudio</h2>
+  <div class="card-grid" style="grid-template-columns: 1fr;">
+    <div class="card studio-card">
+      <h3>Raastudio</h3>
+      <p>
+       Unified Studio for AI, Tokenized Assets, and Smart Contracts — enabling Afrobeats and Afrofilm creators, including Nollywood artists, with AI-driven music and film production, rights protection, monetization, and global distribution via Amazon Prime Video and Music, Netflix, YouTube, Spotify, and TikTok.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Raastudio card background options */
+
+  /* Deep Pink */
+  .studio-card {
+    background: linear-gradient(135deg, #7a003c, #b3005e);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 24px;
+    border-radius: 16px;
+    color: #fff;
+    font-weight: 500;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  /* Deep Brown alternative: uncomment to use */
+  /*
+  .studio-card {
+    background: linear-gradient(135deg, #4b2e2e, #6b3f3f);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 24px;
+    border-radius: 16px;
+    color: #fff;
+    font-weight: 500;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  */
+
+  .studio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, #9b0050, #d10070); /* Slightly lighter pink on hover */
+    /* For deep brown hover: background: linear-gradient(135deg, #5c3a3a, #7c4b4b); */
+  }
+
+  .studio-card h3 {
+    color: #FFD700; /* Gold title */
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .studio-card p {
+    color: #f0f0f0;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+</style>
+
+  <!-- Two-Token Economy -->
+  <section id="two-token-economy" data-aos="fade-right">
+    <h2 class="section-title">Two-Token Economy</h2>
+    <div class="card-grid">
+      <div class="card" data-aos="fade-up" data-aos-delay="0"><h3>RBT Token</h3><p>RaasBridge Native Coin Powering Liquidity, Governance & Gas Fees. Meta Operational Currency with 0.1 Raas. Price Determined by Market Dynamics with 0.0001 gr Gold Peg.</p></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="100"><h3>Raas Token</h3><p>Native Coin to Raasystem. Stable Price with Raas Gold Price = 0.001 Gr Gold. Anchor to RBT at 1:10 Ratio. Price Determined by Gold Spot Market Price. Settlement Coin.</p></div>
+    </div>
+  </section>
+
+  <!-- Developers Section -->
+  <section id="developers" data-aos="fade-left">
+    <h2 class="section-title">Developers</h2>
+    <div class="card-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="card" data-aos="fade-up" data-aos-delay="0"><h3>Developer Center</h3><p>All Resources for Building Applications on Raasystem.</p></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="100"><h3>SDK & API</h3><p>Integrate Seamlessly with Raasystem APIs & SDKs.</p></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="200"><h3>Smart Contracts</h3><p>Guides & Examples for Deploying Smart Contracts.</p></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="300"><h3>Oracle Integration</h3><p>Connect External Data Feeds Securely and Reliably.</p></div>
+    </div>
+  </section>
+
+  <!-- Learn Section -->
+  <section id="learn" data-aos="fade-right">
+    <h2 class="section-title">Learn</h2>
+    <div class="card-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="card" data-aos="fade-up" data-aos-delay="0"><h3>Whitepaper</h3><p>Detailed Overview of Raasystem Technology & Vision.</p></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="100"><h3>Documentation</h3><p>Step-by-Step Technical Documentation & Guides.</p></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="200"><h3>Blog</h3><p>Updates, News, and Insights on the Raasystem Ecosystem.</p></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="300"><h3>FAQ</h3><p>Frequently Asked Questions and Support Information.</p></div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section id="partners" data-aos="fade-left">
+    <h2 class="section-title">Partners</h2>
+    <div class="card-grid">
+      <div class="card" data-aos="fade-up" data-aos-delay="0"><h3>AWS</h3><p>Cloud Infrastructure and Technical Support Partnership.</p></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="100"><h3>XDC</h3><p>Blockchain Integration and Ecosystem Support.</p></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="200"><h3>Nvidia</h3><p>AI Hardware Acceleration & Technical Collaboration.</p></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="300"><h3>XRP</h3><p>Cross-Border Payment & Liquidity Network Integration.</p></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="400"><h3>USDT</h3><p>Stablecoin Liquidity & DeFi Integration Support.</p></div>
+      <div class="card" data-aos="fade-up" data-aos-delay="500"><h3>ICE</h3><p>Commodity & Financial Market Infrastructure & Strategic Alliance.</p></div>
+    </div>
+  </section>
+
+<!-- Ecosystem Diagrams -->
+<section id="ecosystem-diagrams" data-aos="fade-up">
+  <h2 class="section-title ecosystem">Ecosystem Diagrams</h2>
+
+  <div class="flex flex-col items-center space-y-20 my-20">
+    <div data-aos="zoom-in" data-aos-delay="0">
+      <img src="images/raasystem-unified-diagram.png" alt="Raasystem Unified Architecture" class="max-w-4xl rounded-2xl shadow-2xl" />
+    </div>
+
+    <div data-aos="zoom-in" data-aos-delay="100">
+      <img src="images/two-token-economy.png" alt="Raasystem Two Token Economy Diagram" class="max-w-4xl rounded-2xl shadow-2xl" />
+    </div>
+
+    <div data-aos="zoom-in" data-aos-delay="200">
+      <img src="images/RaasGenai.png" alt="RaasGenAI" class="max-w-4xl rounded-2xl shadow-2xl" />
+    </div>
+
+    <div data-aos="zoom-in" data-aos-delay="200">
+      <img src="images/raasgenai-cto.png" alt="RaasGenAI-Raasystem CTO" class="max-w-4xl rounded-2xl shadow-2xl" />
+    </div>
+
+    <div data-aos="zoom-in" data-aos-delay="200">
+      <img src="images/raasgenai-intelligence.png" alt="RaasGenAI-Brain" class="max-w-4xl rounded-2xl shadow-2xl" />
+    </div>
+
+    <div data-aos="zoom-in" data-aos-delay="300">
+      <img src="images/raascan.png" alt="Raascan" class="max-w-4xl rounded-2xl shadow-2xl" />
+    </div>
+
+    <div data-aos="zoom-in" data-aos-delay="300">
+      <img src="images/raastudio.png" alt="Raastudio" class="max-w-4xl rounded-2xl shadow-2xl" />
+    </div>
+
+    <div data-aos="zoom-in" data-aos-delay="300">
+      <img src="images/raastudio-integration.png" alt="Raastudio-Integration" class="max-w-4xl rounded-2xl shadow-2xl" />
+    </div>
+  </div>
+</section>
+
 </main>
 
 <script>
-  function toggleMenu() {
-    document.getElementById('nav-list').classList.toggle('show');
-  }
+  // Smooth scroll and active sidebar highlight
+  const sidebarLinks = document.querySelectorAll('.sidebar a');
+  const sections = document.querySelectorAll('main section');
 
-  // Mobile dropdown tap support with parent link navigation
-  const dropdownLinks = document.querySelectorAll('.dropdown > a');
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        window.scrollTo({top: targetSection.offsetTop - 100, behavior: 'smooth'});
+      }
+      sidebarLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
 
-  dropdownLinks.forEach(link => {
-    let tapped = false; // track first tap
-    link.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768) {
-        const parent = link.parentElement;
-
-        if (!tapped) {
-          e.preventDefault();
-          // close other open dropdowns
-          document.querySelectorAll('.dropdown').forEach(d => {
-            if (d !== parent) d.classList.remove('show-dropdown');
-          });
-          parent.classList.toggle('show-dropdown');
-          tapped = true;
-          setTimeout(() => tapped = false, 500); // reset tap
-        } else {
-          // second tap goes to link
-          window.location.href = link.href;
-        }
+  window.addEventListener('scroll', () => {
+    let scrollPos = window.scrollY + 120;
+    sections.forEach(section => {
+      const id = section.getAttribute('id');
+      const offsetTop = section.offsetTop;
+      const offsetHeight = section.offsetHeight;
+      const link = document.querySelector(`.sidebar a[href="#${id}"]`);
+      if (scrollPos >= offsetTop && scrollPos < offsetTop + offsetHeight) {
+        sidebarLinks.forEach(l => l.classList.remove('active'));
+        if (link) link.classList.add('active');
       }
     });
   });
-</script>
 
-<div id="footer-placeholder"></div>
-<script>
-  fetch('footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer-placeholder').innerHTML = data;
-    })
-    .catch(error => console.error('Footer load error:', error));
+  // Initialize AOS
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 100,
+  });
 </script>
 
 </body>
