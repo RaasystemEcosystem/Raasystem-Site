@@ -201,61 +201,44 @@
   <h2 class="section-title">Raastudio</h2>
   <div class="card-grid" style="grid-template-columns: 1fr;">
     <div class="card studio-card">
-      <h3>Raastudio</h3>
       <p>
-       Unified Studio for AI, Tokenized Assets, and Smart Contracts — enabling Afrobeats and Afrofilm creators, including Nollywood artists, with AI-driven music and film production, rights protection, monetization, and global distribution via Amazon Prime Video and Music, Netflix, YouTube, Spotify, and TikTok.
+        Unified Studio for AI, Tokenized Assets, and Smart Contracts — enabling Afrobeats and Afrofilm creators, including Nollywood artists, with AI-driven music and film production, rights protection, monetization, and global distribution via Amazon Prime Video and Music, Netflix, YouTube, Spotify, and TikTok.
       </p>
     </div>
   </div>
 </section>
 
 <style>
-  /* Raastudio card background options */
+  /* =========================================
+     Raastudio — MATCH Analytics CARD COLOR
+     ========================================= */
 
-  /* Deep Pink */
-  .studio-card {
-    background: linear-gradient(135deg, #7a003c, #b3005e);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 24px;
+  .card.studio-card {
+    background: #550022 !important; /* exact --deep-pink-card */
+    border: 1px solid rgba(255, 215, 0, 0.22);
+    padding: 28px;
     border-radius: 16px;
-    color: #fff;
+    color: #ffffff;
     font-weight: 500;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      background 0.3s ease;
   }
 
-  /* Deep Brown alternative: uncomment to use */
-  /*
-  .studio-card {
-    background: linear-gradient(135deg, #4b2e2e, #6b3f3f);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 24px;
-    border-radius: 16px;
-    color: #fff;
-    font-weight: 500;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  */
-
-  .studio-card:hover {
+  /* Hover — exact Analytics hover color */
+  .card.studio-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-    background: linear-gradient(135deg, #9b0050, #d10070); /* Slightly lighter pink on hover */
-    /* For deep brown hover: background: linear-gradient(135deg, #5c3a3a, #7c4b4b); */
+    background: #660033 !important; /* exact --deep-pink-card-hover */
   }
 
-  .studio-card h3 {
-    color: #FFD700; /* Gold title */
-    margin-bottom: 12px;
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-
-  .studio-card p {
+  /* Text */
+  .card.studio-card p {
     color: #f0f0f0;
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 1.05rem;
+    line-height: 1.7;
   }
 </style>
 
@@ -332,6 +315,9 @@
       <img src="images/raascan.png" alt="Raascan" class="max-w-4xl rounded-2xl shadow-2xl" />
     </div>
 
+    <div data-aos="zoom-in" data-aos-delay="300">
+      <img src="images/raas-explorer.png" alt="RaasExplorer" class="max-w-4xl rounded-2xl shadow-2xl" />
+    </div> 
     <div data-aos="zoom-in" data-aos-delay="300">
       <img src="images/raastudio.png" alt="Raastudio" class="max-w-4xl rounded-2xl shadow-2xl" />
     </div>
