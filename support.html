@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Raasystem — Resources & Support</title>
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+<style>
+  body { background:#0b0b0b; color:#fff; font-family:Segoe UI, Tahoma, sans-serif; }
+
+  .panel {
+    background:#151515;
+    border:1px solid #2a2a2a;
+    border-radius:18px;
+    box-shadow:0 18px 40px rgba(0,0,0,.45);
+  }
+
+  .faq-item { border-bottom:1px solid #2a2a2a; }
+  .faq-btn { width:100%; text-align:left; }
+
+  /* Resources Section */
+  .section-title { color:#FFD700; font-weight:bold; font-size:1.75rem; margin-bottom:0.5rem; }
+  .ecosystem-img { width:100%; border-radius:1rem; margin:1rem 0; }
+  .card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+  .card { background:#151515; padding:20px; border-radius:18px; border:1px solid #2a2a2a; box-shadow:0 10px 30px rgba(0,0,0,.4); }
+  .studio-card { margin-top:10px; padding:15px; background:#1a1a1a; border-radius:12px; }
+
+  /* FAQ Section */
+  .faq-title { color: #FFD700; font-weight: bold; margin-bottom: 20px; font-size:1.75rem; }
+  .faq-answer { display: none; margin-top: 8px; }
+  .faq-question { cursor: pointer; }
+  .question-text { color: #1E90FF; font-weight: normal; }
+  .faq-card.active .faq-question .question-text { color: #FFD700; }
+  .faq-card.active .faq-answer { display: block; }
+</style>
+</head>
+
+<body>
+
+<header class="w-full border-b border-gray-800 px-6 py-4 flex justify-between items-center bg-black">
+  <div class="text-yellow-400 font-extrabold text-xl">Raasystem</div>
+  <nav class="space-x-4">
+    <a href="index.html" class="hover:text-yellow-400">Home</a>
+    <a href="resources-support.html" class="text-yellow-400 font-semibold">Resources & Support</a>
+  </nav>
+</header>
+
+<main class="max-w-6xl mx-auto px-6 py-14">
+
+  <!-- Resources Center -->
+  <section id="resources-center" class="mb-12">
+    <h1 class="text-3xl font-extrabold text-yellow-400 text-center">Resources Center</h1>
+    <p class="text-gray-300 text-center mt-3">Explore tools, guides, and knowledge to build, learn, and master the Raasystem ecosystem.</p>
+  </section>
+
+  <!-- Raastudio -->
+  <section id="raas-studio" class="mb-12" data-aos="fade-up">
+    <h2 class="section-title">Raastudio</h2>
+    <p class="text-lg md:text-xl leading-relaxed mt-2" style="color:#3aa8ff;">
+      Inspires creators with AI-powered music lyrics, Afrobeat ideas, and film themes — while enabling seamless distribution, global reach, and tokenized rights management to empower artists and storytellers across the AfroEntertainment ecosystem.
+    </p>
+    <div class="card studio-card">
+    </div>
+    <img src="images/raastudio.png" class="ecosystem-img" alt="Raastudio Ecosystem">
+  </section>
+
+<!-- Developers -->
+<section id="developers" class="mb-12" data-aos="fade-up">
+  <h2 class="section-title">Developers</h2>
+  <p class="text-lg md:text-xl leading-relaxed mt-2" style="color:#3aa8ff;">
+    Tools, APIs, and smart contracts for building on a next-gen AI-driven blockchain.
+  </p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">Developer Center</h3>
+      <p>Resources, tooling, and architecture guidance for building on Raasystem.</p>
+    </div>
+
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">SDK & API</h3>
+      <p>Seamless integration for applications, services, and ecosystem extensions.</p>
+    </div>
+
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">Smart Contracts</h3>
+      <p>Guides, examples, and deployment workflows.</p>
+    </div>
+
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">Oracle Integration</h3>
+      <p>Secure external data feeds and real-world connectivity.</p>
+    </div>
+
+    <!-- New Card 1 -->
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">Testnet & Sandbox</h3>
+      <p>Experiment safely using testnets, simulation tools, and sandboxed environments.</p>
+    </div>
+
+    <!-- New Card 2 -->
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">Security & Auditing</h3>
+      <p>Best practices, audits, and verification tools to build secure, production-ready applications.</p>
+    </div>
+  </div>
+</section>
+
+    <img src="images/developers.png" class="ecosystem-img" alt="Developer Resources">
+  </section>
+
+<!-- Learn -->
+<section id="learn" class="mb-12" data-aos="fade-up">
+  <h2 class="section-title">Learn</h2>
+  <p class="text-lg md:text-xl leading-relaxed mt-2" style="color:#3aa8ff;">
+    Documentation, blogs, and FAQs — everything to navigate and master Raasystem.
+  </p>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">Raasystem Whitepapers</h3>
+      <p>Explore detailed whitepapers, onboarding guides, and essential support resources to help you get started.</p>
+    </div>
+
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">Raasnomics Insights</h3>
+      <p>Dive into Raasnomics, our tokenomics framework, financial models, and governance insights for the ecosystem.</p>
+    </div>
+
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">Developer Resources</h3>
+      <p>Access API documentation, SDKs, and technical guides to integrate and build on the Raasystem platform.</p>
+    </div>
+
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">Raasystem Knowledge</h3>
+      <p>Learn about ecosystem interfaces, partner networks, and tools that drive collaboration and innovation.</p>
+    </div>
+
+    <!-- New Card 1 -->
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">Community Blogs</h3>
+      <p>Read articles, insights, and tutorials from the Raasystem community to stay informed on ecosystem developments.</p>
+    </div>
+
+    <!-- New Card 2 -->
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">Learning Hub</h3>
+      <p>Step-by-step courses, video tutorials, and interactive guides to master Raasystem tools and platforms efficiently.</p>
+    </div>
+  </div>
+</section>
+
+    <img src="images/learn.png" class="ecosystem-img" alt="Learning Resources">
+  </section>
+
+  <!-- Interfaces -->
+  <section id="ecosystem-interfaces" data-aos="fade-up">
+    <h2 class="section-title">Ecosystem Interfaces</h2>
+    <p class="text-lg md:text-xl leading-relaxed mt-2" style="color:#3aa8ff;">
+Ecosystem Interfaces form the unified interaction layer of Raasystem — led by RaasExplorer and Raascan — enabling seamless user navigation, on-chain visibility, network intelligence, and cross-platform interoperability across assets, protocols, and services.</p>
+  </section>
+
+  <img src="images/raas-explorer.png" class="ecosystem-img" alt="">
+
+  <!-- Future Devices -->
+  <section id="future-devices" class="mb-12" data-aos="fade-up">
+    <h2 class="section-title">Future Applications: Device-agnostic Intelligence</h2>
+    <p class="text-lg md:text-xl leading-relaxed mt-2" style="color:#3aa8ff;text-align:center;">
+      RaasGenAIOS is designed to run everywhere — from cloud to edge — delivering consistent intelligence across environments.
+    </p>
+    <div class="card-grid">
+      <div class="card"><h3 class="font-bold text-yellow-400">Mobile Phone</h3><p>Edge intelligence powered by RaasGenAIOS.</p></div>
+      <div class="card"><h3 class="font-bold text-yellow-400">Laptop</h3><p>Personal and professional computing.</p></div>
+      <div class="card"><h3 class="font-bold text-yellow-400">RaasCampus</h3><p>AI-driven education, collaboration, and innovation hubs.</p></div>
+    </div>
+  </section>
+
+  <img src="images/future-applications.png" class="ecosystem-img mt-10" alt="RaasMatrix Comparison Overview">
+
+  <!-- RaasMatrix Core Architecture -->
+<section id="raasmatrix-explained" class="mb-12" data-aos="fade-up">
+  <h2 class="section-title">RaasMatrix Core Architecture</h2>
+  <p class="text-lg md:text-xl leading-relaxed mt-2" style="color:#3aa8ff;">
+    The intelligence kernel powering Raasystem — enabling modular AI, governance, and scalable integration.
+  </p>
+
+  <div class="card-grid">
+
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">RaasMatrix Kernel</h3>
+      <p>
+        The foundational execution and intelligence layer of Raasystem. RaasMatrix orchestrates logic, workflows,
+        and decision frameworks across AI, data, and decentralized components.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">RaasMatrixSG</h3>
+      <p>
+        The system governance layer that manages rules, permissions, compliance, and policy enforcement —
+        ensuring secure, auditable, and adaptive operations across the ecosystem.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">RaasGenAIOS Integration</h3>
+      <p>
+        Seamlessly integrates with RaasGenAIOS to enable autonomous agents, contextual reasoning,
+        and real-time intelligence orchestration across applications and services.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">Composable Intelligence Layer</h3>
+      <p>
+        Designed for modular deployment — RaasMatrix allows developers and enterprises to compose,
+        extend, and customize intelligence workflows without rebuilding core infrastructure.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">Enterprise & Web3 Ready</h3>
+      <p>
+        Built to bridge enterprise systems, decentralized networks, and AI-native applications —
+        supporting scalability, interoperability, and future-ready architectures.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3 class="font-bold text-yellow-400">How RaasMatrix Compares</h3>
+      <p>
+        Unlike traditional monolithic or siloed stacks, RaasMatrix unifies AI, governance,
+        and orchestration into a single adaptive intelligence framework.
+      </p>
+    </div>
+
+  </div>
+
+  <img src="images/RMK-Compared.png" class="ecosystem-img mt-10" alt="RaasMatrix Comparison Overview">
+</section>
+
+    <!-- Intro -->
+  <section class="text-center mb-10">
+    <h1 class="text-3xl font-extrabold text-yellow-400">Support Center</h1>
+    <p class="text-gray-300 mt-3">
+      Find answers, submit inquiries, and stay updated with ecosystem resources.
+    </p>
+  </section>
+
+  <!-- Subscribe Panel -->
+  <section class="panel p-8 mb-10">
+    <h2 class="text-xl font-bold text-yellow-400 mb-3">Subscribe for Updates</h2>
+    <p class="text-gray-300 mb-4">
+      Get product releases, ecosystem updates, and developer announcements.
+    </p>
+
+    <form onsubmit="event.preventDefault()" class="grid gap-3 sm:grid-cols-3">
+      <input type="email" placeholder="Your email"
+        class="p-3 rounded-lg bg-[#0d0d0d] border border-gray-600 text-white focus:outline-none focus:border-yellow-400 sm:col-span-2"
+        required>
+      <button type="submit"
+        class="bg-yellow-400 text-black font-semibold rounded-lg p-3 hover:bg-yellow-500 transition">
+        Subscribe
+      </button>
+    </form>
+  </section>
+
+<!-- =============================== -->
+<!-- FULL FAQ SECTION -->
+<!-- =============================== -->
+<section id="faq" data-aos="fade-up">
+  <h2 class="faq-title">FAQ</h2>
+
+  <!-- =============================== -->
+  <!-- RAASGENAIOS — AI OPERATING SYSTEM -->
+  <!-- =============================== -->
+  <h3 class="faq-category-title">RaasGenAIOS — AI Operating System</h3>
+  <div class="faq-grid" style="display:grid; grid-template-columns: repeat(2, 1fr); gap:20px;">
+
+    <div class="faq-card">
+      <h3 class="faq-question"><span class="question-text">What is RaasGenAIOS?</span> +</h3>
+      <div class="faq-answer">
+        <em>RaasGenAIOS is a sovereign, AI-native operating system that governs intelligence, decision-making, and execution across the Raasystem ecosystem. It functions as the central nervous system coordinating applications, blockchain infrastructure, cloud compute, GPU resources, and real-world assets through deterministic and auditable AI execution.</em>
+      </div>
+    </div>
+
+    <div class="faq-card">
+      <h3 class="faq-question"><span class="question-text">Is RaasGenAIOS an application or a platform?</span> +</h3>
+      <div class="faq-answer">
+        <em>Neither. RaasGenAIOS is an AI Operating System. It governs intent routing, simulation, policy enforcement, and execution across entire digital ecosystems. Raasystem itself is one of many intelligent applications running on top of RaasGenAIOS.</em>
+      </div>
+    </div>
+
+    <div class="faq-card">
+      <h3 class="faq-question"><span class="question-text">Does RaasGenAIOS replace Android, iOS, Windows, or macOS?</span> +</h3>
+      <div class="faq-answer">
+        <em>No. RaasGenAIOS sits above existing operating systems as an AI Operating Layer. Traditional OSes manage devices and user interfaces, while RaasGenAIOS manages intelligence, workflows, governance, and ecosystem-wide coordination across them.</em>
+      </div>
+    </div>
+
+    <div class="faq-card">
+      <h3 class="faq-question"><span class="question-text">Can RaasGenAIOS run independently without another OS?</span> +</h3>
+      <div class="faq-answer">
+        <em>Yes — in controlled environments like AI nodes, edge appliances, embedded systems, and sovereign infrastructure. On consumer devices, it operates above existing OSes to maximize adoption, interoperability, and scalability.</em>
+      </div>
+    </div>
+
+    <div class="faq-card">
+      <h3 class="faq-question"><span class="question-text">Why is RaasGenAIOS considered a world-first?</span> +</h3>
+      <div class="faq-answer">
+        <em>It is the first OS designed with AI as the governing authority rather than a feature. It introduces intent-driven execution, deterministic AI workflows, governance-before-execution, and strict separation between intelligence and on-chain execution — enabling institutional-grade trust across digital and real-world systems.</em>
+      </div>
+    </div>
+
+    <div class="faq-card" style="grid-column: span 2;">
+      <h3 class="faq-question"><span class="question-text">How does RaasGenAIOS compare to traditional and sovereign operating systems?</span> +</h3>
+      <div class="faq-answer">
+        <em>Below is a comparison of RaasGenAIOS with iOS/Android, Windows, and HarmonyOS:</em>
+        <table style="width:100%; border-collapse: collapse; margin-top:10px; color:white;">
+          <thead>
+            <tr style="background-color:#333;">
+              <th style="border: 1px solid #ccc; padding:8px;">Dimension</th>
+              <th style="border: 1px solid #ccc; padding:8px;">iOS / Android / Windows</th>
+              <th style="border: 1px solid #ccc; padding:8px;">HarmonyOS</th>
+              <th style="border: 1px solid #ccc; padding:8px;">RaasGenAIOS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="border:1px solid #ccc; padding:8px;">OS Layer</td><td style="border:1px solid #ccc; padding:8px;">Device / Kernel</td><td style="border:1px solid #ccc; padding:8px;">Device / Microkernel</td><td style="border:1px solid #ccc; padding:8px;">AI Operating Layer</td></tr>
+            <tr><td style="border:1px solid #ccc; padding:8px;">Hardware Control</td><td style="border:1px solid #ccc; padding:8px;">Direct</td><td style="border:1px solid #ccc; padding:8px;">Direct</td><td style="border:1px solid #ccc; padding:8px;">Abstracted</td></tr>
+            <tr><td style="border:1px solid #ccc; padding:8px;">App Ecosystem</td><td style="border:1px solid #ccc; padding:8px;">Platform-locked</td><td style="border:1px solid #ccc; padding:8px;">Vendor-locked</td><td style="border:1px solid #ccc; padding:8px;">Ecosystem-agnostic</td></tr>
+            <tr><td style="border:1px solid #ccc; padding:8px;">AI Role</td><td style="border:1px solid #ccc; padding:8px;">Feature-level</td><td style="border:1px solid #ccc; padding:8px;">Feature-level</td><td style="border:1px solid #ccc; padding:8px;">Governing Intelligence</td></tr>
+            <tr><td style="border:1px solid #ccc; padding:8px;">Runs Without Another OS</td><td style="border:1px solid #ccc; padding:8px;">Yes</td><td style="border:1px solid #ccc; padding:8px;">Yes</td><td style="border:1px solid #ccc; padding:8px;">Yes (when desired)</td></tr>
+            <tr><td style="border:1px solid #ccc; padding:8px;">Requires OS to Scale</td><td style="border:1px solid #ccc; padding:8px;">Yes</td><td style="border:1px solid #ccc; padding:8px;">Yes</td><td style="border:1px solid #ccc; padding:8px;">No</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+      </div>
+    <img src="images/RaasGenAIOS-Integrated.png" alt="RaasGenAIOS Integrated" class="rounded-lg w-full mt-4">
+  </div>
+
+  <!-- =============================== -->
+  <!-- Core Ecosystem Components -->
+  <!-- =============================== -->
+  <h3 class="faq-category-title">Core Ecosystem Components</h3>
+  <div class="faq-grid" style="display:grid; grid-template-columns: repeat(2, 1fr); gap:20px;">
+    <div class="faq-card">
+      <h3 class="faq-question"><span class="question-text">What is RaasMatrix?</span> +</h3>
+      <div class="faq-answer">
+        <em>RaasMatrix is the programmable trust and governance layer of Raasystem. It generates, registers, governs, and deploys smart contracts proposed by RaasGenAIOS, ensuring deterministic execution, upgradeability, and institutional-grade auditability.</em>
+      </div>
+    </div>
+
+    <div class="faq-card">
+      <h3 class="faq-question"><span class="question-text">What is RaasBridge?</span> +</h3>
+      <div class="faq-answer">
+        <em>RaasBridge is a cross-chain and cross-asset orchestration layer that enables interoperability across blockchains, asset classes, and infrastructures under AI-driven coordination.</em>
+      </div>
+    </div>
+
+    <div class="faq-card">
+      <h3 class="faq-question"><span class="question-text">What is RaasCampus?</span> +</h3>
+      <div class="faq-answer">
+        <em>RaasCampus is the real-world asset (RWA) and physical infrastructure arm of Raasystem, covering initiatives such as agriculture, data centers, healthcare, and regional digital infrastructure across Africa.</em>
+      </div>
+    </div>
+
+    <div class="faq-card">
+      <h3 class="faq-question"><span class="question-text">What is Raastudio?</span> +</h3>
+      <div class="faq-answer">
+        <em>Raastudio is the innovation and creation environment within Raasystem where developers, creators, and partners build, test, and deploy applications, with a strong focus on African creative economies.</em>
+      </div>
+    </div>
+  </div>
+
+      </div>
+    <img src="images/Raasystem-Overview.png" alt="Raasystem Overview" class="rounded-lg w-full mt-4">
+  </div>
+
+  <!-- =============================== -->
+  <!-- Platform & Ecosystem -->
+  <!-- =============================== -->
+  <h3 class="faq-category-title">Platform & Ecosystem</h3>
+  <div class="faq-grid" style="display:grid; grid-template-columns: repeat(2, 1fr); gap:20px;">
+    <div class="faq-card">
+      <h3 class="faq-question"><span class="question-text">What is Rabex Hallmark?</span> +</h3>
+      <div class="faq-answer">
+        <em>Rabex Hallmark is an automated market maker (AMM) platform that enables autonomous and AI-guided trading, allowing smart, efficient, and fully automated exchange of assets.</em>
+      </div>
+    </div>
+
+    <div class="faq-card">
+      <h3 class="faq-question"><span class="question-text">Why does Raasystem have many platforms?</span> +</h3>
+      <div class="faq-answer">
+        <em>Raasystem’s multi-platform design ensures sovereignty, modularity, and economies of scale, enabling specialized platforms to operate independently while remaining fully integrated into the ecosystem.</em>
+      </div>
+    </div>
+
+    <div class="faq-card">
+      <h3 class="faq-question"><span class="question-text">Why Two Tokens: Raas and RBT?</span> +</h3>
+      <div class="faq-answer">
+        <em>Raasystem uses a two-token economy: RBT serves as the operational currency for transactions, while Raas acts as a stable settlement currency, ensuring stability and flexibility throughout the ecosystem.</em>
+      </div>
+    </div>
+
+    <div class="faq-card">
+      <h3 class="faq-question"><span class="question-text">Is RaasExplorer different from other explorers?</span> +</h3>
+      <div class="faq-answer">
+        <em>Yes — RaasExplorer provides advanced analytics, real-time insights, and comprehensive transparency, going beyond traditional blockchain explorers.</em>
+      </div>
+    </div>
+
+    <div class="faq-card">
+      <h3 class="faq-question"><span class="question-text">What makes Raaspay different from traditional payment gateways?</span> +</h3>
+      <div class="faq-answer">
+        <em>Raaspay is an AI-driven, hybrid blockchain payment infrastructure that delivers high-speed settlements, cross-chain interoperability, and real-world asset integration — enabling seamless, secure, and scalable transactions across borders.</em>
+      </div>
+    </div>
+
+    <div class="faq-card">
+      <h3 class="faq-question"><span class="question-text">Why does Raasystem integrate with AWS, Nvidia, XDC, XRP, USDT, and ICE?</span> +</h3>
+      <div class="faq-answer">
+        <em>These integrations extend capability, liquidity, and real-world utility. AI-driven coordination ensures every external interaction strengthens the ecosystem while preserving autonomy, security, and governance integrity.</em>
+      </div>
+    </div>
+
+    <div class="faq-card">
+      <h3 class="faq-question"><span class="question-text">How does Raasystem compare to Robinhood, Binance, Coinbase, Nasdaq, and NYSE?</span> +</h3>
+      <div class="faq-answer">
+        <em>Raasystem combines stocks, commodities, crypto, and cross-chain access in one AI-orchestrated ecosystem. Users benefit from integrated wallets, trading, payments, analytics, and governance tools — giving more flexibility and autonomy than peers individually.</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================== -->
+  <!-- Toggle Script -->
+  <!-- =============================== -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.faq-card').forEach(card => {
+      const question = card.querySelector('.faq-question');
+      const answer = card.querySelector('.faq-answer');
+
+      question.addEventListener('click', () => {
+        card.classList.toggle('active');
+        answer.style.display = card.classList.contains('active')
+          ? 'block'
+          : 'none';
+      });
+    });
+  });
+</script>
+
+</section>
+
+<!-- =============================== -->
+<!-- CSS -->
+<!-- =============================== -->
+<style>
+  /* Existing FAQ styles */
+  .faq-title { color: #FFD700; font-weight: bold; margin-bottom: 20px; }
+  .faq-question { cursor: pointer; margin-bottom: 4px; }
+  .question-text { color: #1E90FF; font-weight: normal; transition: color 0.2s; }
+  .faq-card.active .question-text { color: #FFD700; }
+  .faq-answer { display: none; margin-top: 8px; }
+
+  /* Add extra spacing before each new category */
+  .faq-category-title {
+    margin-top: 50px; /* Adjust this value as needed */
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+</style>
+
+      </div>
+    <img src="images/RaasGenAIOS-Monetization.png" alt="RaasGenAIOS Monetization" class="rounded-lg w-full mt-4">
+  </div>
+
+<!-- =============================== -->
+<!-- ACCESS, SECURITY & ONBOARDING -->
+<!-- =============================== -->
+<h3 class="faq-category-title" style="font-weight:bold; margin-top:40px;">Access, Security & Onboarding</h3>
+
+<div class="faq-grid" style="display:grid; grid-template-columns: repeat(2, 1fr); gap:20px;">
+
+  <div class="card faq-card">
+    <h3 class="faq-question"><span class="question-text">What is RaasWallet?</span> +</h3>
+    <p class="faq-answer">
+      <em>
+        RaasWallet is the primary gateway into Raasystem. It provides unified access to trading, payments, governance, analytics, and ecosystem services through a single secure dashboard.
+      </em>
+    </p>
+  </div>
+
+  <div class="card faq-card">
+    <h3 class="faq-question">
+      <span class="question-text">How does user onboarding work?</span> +
+    </h3>
+    <p class="faq-answer">
+      <em>
+        Users onboard through RaasWallet, which grants access to RaasBridge, trading platforms, payment services, analytics, and governance tools — all orchestrated by RaasGenAIOS.
+      </em>
+    </p>
+  </div>
+
+  <div class="card faq-card">
+    <h3 class="faq-question">
+      <span class="question-text">How does Raasystem ensure security?</span> +
+    </h3>
+    <p class="faq-answer">
+      <em>
+        Security is enforced at the AI Operating System level. RaasGenAIOS provides continuous monitoring, threat detection, policy enforcement, and deterministic execution across all ecosystem layers.
+      </em>
+    </p>
+  </div>
+
+  <div class="card faq-card">
+    <h3 class="faq-question">
+      <span class="question-text">What makes Raasystem difficult to replicate?</span> +
+    </h3>
+    <p class="faq-answer">
+      <em>
+        Raasystem combines sovereign AI governance, programmable trust, cross-chain infrastructure, and real-world asset integration into a single operating fabric — a level of systemic integration that is extremely difficult to reproduce.
+      </em>
+    </p>
+  </div>
+
+</div>
+
+</section>
+
+<!-- RaasGenAI Image Cards -->
+<div class="card-grid mt-6">
+  <div class="card">
+    <img src="images/raasgenai-cto.png" alt="RaasGenAI as Ecosystem CTO" class="rounded-lg">
+    <p class="mt-2 text-gray-300">RaasGenAI — Ecosystem CTO Intelligence Layer</p>
+  </div>
+</div>
+
+  <!-- Contact CTA -->
+  <section class="panel p-8 text-center">
+    <h2 class="text-xl font-bold text-yellow-400 mb-2">Need More Help?</h2>
+    <p class="text-gray-300 mb-4">
+      For partnerships, integrations, or ecosystem inquiries — reach out to us.
+    </p>
+
+    <a href="index.html#contact"
+       class="inline-block bg-yellow-400 text-black font-semibold px-6 py-3 rounded-lg hover:bg-yellow-500 transition">
+      Contact Raasystem
+    </a>
+  </section>
+
+</main>
+
+<script>
+function toggleFaq(btn){
+  const p = btn.nextElementSibling;
+  const open = !p.classList.contains("hidden");
+  document.querySelectorAll("#faq p").forEach(el=>el.classList.add("hidden"));
+  document.querySelectorAll("#faq button span").forEach(el=>el.textContent="+");
+  if(!open){ p.classList.remove("hidden"); btn.querySelector("span").textContent="−"; }
+}
+</script>
+
+</body>
+</html>
+

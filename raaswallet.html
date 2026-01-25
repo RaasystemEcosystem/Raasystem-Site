@@ -3,60 +3,149 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raaswallet - One Non-Custodial Wallet</title>
+  <title>Raaswallet - Login / Get Raaswallet</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body { 
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      background:#0d0d0d; color:#fff; margin:0; display:flex; flex-direction:column; align-items:center; 
+    }
+    header { 
+      width:100%; padding:20px 40px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #333; 
+    }
+    .logo { font-size:1.8rem; font-weight:bold; color:#FFD700; }
+    nav a { margin-left:20px; color:white; text-decoration:none; font-weight:500; }
+    nav a:hover { color:#FFD700; }
+    nav a.active { background:#FFD700; color:#000; font-weight:bold; padding:5px 10px; border-radius:5px; }
+    main { max-width:900px; width:100%; padding:40px 20px; text-align:center; }
+    .intro-title { font-size:2.5rem; font-weight:bold; color:#FFD700; margin-bottom:10px; }
+    .intro-subtitle { font-size:1.8rem; font-weight-semibold; color:#3B82F6; margin-bottom:20px; }
+    .intro-desc { font-size:1.1rem; color:#ccc; margin-bottom:40px; }
+    .auth-container { background:#1a1a1a; padding:40px; border-radius:12px; box-shadow:0 0 25px rgba(255,215,0,0.2); width:100%; max-width:650px; margin:0 auto 40px; }
+    .auth-container h1 { color:#FFD700; text-align:center; margin-bottom:30px; }
+    .auth-container input, .auth-container select { width:100%; padding:12px; margin-bottom:16px; border:none; border-radius:6px; background:#333; color:#fff; }
+    .auth-container button { width:100%; padding:12px; background:#FFD700; color:#000; border:none; border-radius:6px; cursor:pointer; font-weight:bold; font-size:16px; }
+    .auth-container button:hover { background:#e6c200; }
+    .toggle-link { text-align:center; margin-top:16px; }
+    .toggle-link a { color:#FFD700; text-decoration:none; font-weight:bold; cursor:pointer; }
+    .toggle-link a:hover { text-decoration:underline; }
+    .hidden { display:none; }
+  </style>
 </head>
-<body class="bg-black text-white font-sans">
+<body>
 
-  <!-- Navbar -->
-  <header class="flex justify-between items-center p-6 border-b border-gray-800 bg-black">
-    <h1 class="text-2xl font-bold text-yellow-400">Raasystem</h1>
-    <nav class="space-x-6">
-      <a href="index.html" class="text-white hover:text-yellow-400">Home</a>
-      <a href="raaskoin.html" class="text-white hover:text-yellow-400">Raaskoin</a>
-      <a href="RBT.html" class="text-white hover:text-yellow-400">RBT</a>
-      <a href="raasbridge.html" class="text-white hover:text-yellow-400">RaasBridge</a>
-      <a href="goldpriceoracle.html" class="text-white hover:text-yellow-400">Oracle Monitor</a>
-    </nav>
-  </header>
+<!-- Header -->
+<header>
+  <div class="logo">Raasystem</div>
+  <nav>
+    <a href="index.html">Home</a>
+  </nav>
+</header>
 
-  <!-- Wallet Section -->
-  <main class="p-8 max-w-4xl mx-auto text-center">
-    <section class="mb-12">
-      <!-- Title -->
-      <h2 class="text-4xl font-bold mb-2 text-yellow-400">
-        Raaswallet. One Non-Custodial Wallet.
-      </h2>
-      <!-- Subtitle -->
-      <p class="text-2xl font-semibold text-blue-400 mb-8">
-        One Infrastructure. One Unified Gateway.
-      </p>
-      <!-- Description -->
-      <p class="text-lg mb-8">
-        Raaswallet is your <span class="font-bold text-blue-400">Non-Custodial Gateway</span> to the Raasystem ecosystem — giving you full control of your assets, instant access to multiple markets, and the ability to interact with any asset or trading opportunity seamlessly via RaasBridge.
-      </p>
-    </section>
+<!-- Intro Section -->
+<main>
+  <h2 class="intro-title">Raaswallet. One Non-Custodial Wallet.</h2>
+  <p class="intro-subtitle">One Infrastructure. One Unified Gateway.</p>
+  <p class="intro-desc">
+    Raaswallet is your <span style="color:#3B82F6; font-weight:bold;">Non-Custodial Gateway</span> to the Raasystem ecosystem — giving you full control of your assets, instant access to Multiple Markets, and the ability to interact with any asset or <span style="white-space: nowrap;">Trading Opportunity seamlessly via RaasBridge.</span>
+  </p>
+</main>
 
-    <!-- Action Buttons -->
-    <section class="mt-16 flex flex-col md:flex-row justify-center gap-6">
-      <!-- Launch RaasBridge -->
-      <a href="raasbridge.html" target="_blank"
-         class="inline-block bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg text-lg hover:bg-blue-600 transition">
-        🔗 Launch RaasBridge
-      </a>
+<!-- Login / Get Raaswallet Form -->
+<div class="auth-container">
+  <h1 id="form-title">Welcome to Raasystem</h1>
 
-      <!-- Get Raaswallet -->
-      <a href="http://raasbridge-ui.s3-website-us-east-1.amazonaws.com/" target="_blank"
-         class="inline-block bg-yellow-400 text-black font-semibold py-3 px-6 rounded-lg text-lg hover:bg-yellow-300 transition">
-        💼 Get Raaswallet
-      </a>
-    </section>
-  </main>
+  <!-- Login Form -->
+  <form id="login-form" action="raaswallet.html" method="GET">
+    <input type="text" name="username" placeholder="Username" required />
+    <input type="password" name="password" placeholder="Password" required />
+    <button type="submit">Login</button>
+  </form>
 
-  <!-- Footer -->
-  <footer class="text-center text-gray-500 text-sm mt-12 p-6 border-t border-gray-800">
-    &copy; 2025 Raasystem. All rights reserved.
-  </footer>
+  <!-- Get Raaswallet Form -->
+  <form id="wallet-form" class="hidden" action="raaswallet.html" method="GET">
+    <input type="text" name="fullname" placeholder="Full Name / Company Name" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="text" name="phone" placeholder="Phone Number" required />
+    <select name="walletType" required>
+      <option value="" disabled selected>Select Wallet Type</option>
+      <option value="individual">Individual</option>
+      <option value="company">Company</option>
+    </select>
+    <input type="text" name="username" placeholder="Username" required />
+    <input type="password" name="password" placeholder="Password" required />
+    <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
+    <input type="text" name="taxId" placeholder="Tax ID / Company Registration Number (Optional)" />
+    <button type="submit">Get Raaswallet</button>
+  </form>
+
+  <div class="toggle-link">
+    <p id="toggle-text">Don't have an account? <a onclick="toggleForm()">Get Raaswallet</a></p>
+  </div>
+</div>
+
+<!-- Access Dashboard Button -->
+<div class="text-center my-6">
+  <a href="https://raasystem-site.s3.amazonaws.com/dashboard.html"
+     class="inline-block bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg text-lg hover:bg-blue-700 transition">
+    Access your Raaswallet Dashboard &gt;
+  </a>
+</div>
+
+<!-- Raaswallet Mobile App Section -->
+<section class="mt-12 bg-gray-900 p-8 rounded-lg shadow-lg max-w-650px mx-auto text-center">
+  <h3 class="text-3xl font-bold text-yellow-400 mb-4">Rabex Mobile App</h3>
+  <p class="text-lg font-semibold text-blue-400 mb-6">
+    Trade, Transfer, and Save. Anywhere. Anytime.
+  </p>
+  <div class="flex flex-col md:flex-row justify-center gap-6">
+    <a href="#" target="_blank"
+       class="inline-block bg-yellow-400 text-black font-semibold py-3 px-6 rounded-lg text-lg hover:bg-yellow-300 transition">
+      📱 Download for iOS
+    </a>
+    <a href="#" target="_blank"
+       class="inline-block bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg text-lg hover:bg-blue-600 transition">
+      🤖 Download for Android
+    </a>
+  </div>
+</section>
+
+<script>
+  // Toggle between login and signup forms
+  function toggleForm() {
+    const loginForm = document.getElementById('login-form');
+    const walletForm = document.getElementById('wallet-form');
+    const title = document.getElementById('form-title');
+    const toggleText = document.getElementById('toggle-text');
+
+    if (loginForm.classList.contains('hidden')) {
+      loginForm.classList.remove('hidden');
+      walletForm.classList.add('hidden');
+      title.innerText = 'Welcome to Raasystem';
+      toggleText.innerHTML = `Don't have an account? <a onclick="toggleForm()">Get Raaswallet</a>`;
+    } else {
+      loginForm.classList.add('hidden');
+      walletForm.classList.remove('hidden');
+      title.innerText = 'Apply for Raaswallet';
+      toggleText.innerHTML = `Already have an account? <a onclick="toggleForm()">Login</a>`;
+    }
+  }
+
+  // Login form submit: redirect to dashboard
+  const loginForm = document.getElementById('login-form');
+  loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    window.location.href = 'dashboard.html';  // ✔ CORRECT INSERTED
+  });
+
+  // Signup form submit: auto-login after wallet creation
+  const walletForm = document.getElementById('wallet-form');
+  walletForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Wallet successfully created! Logging you in...');
+    window.location.href = 'dashboard.html';  // ✔ CORRECT INSERTED
+  });
+</script>
 
 </body>
 </html>

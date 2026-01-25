@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raaswallet Dashboard – Unified</title>
+<link href="https://cdn.jsdelivr.net/npm/inter-ui@3.19.3/Inter.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{
+  --bg:#0b0f14;
+  --panel:#0f1720;
+  --muted:#9aa4b2;
+  --accent:#1f6feb;
+  --success:#16a34a;
+  --danger:#ef4444;
+  --card:rgba(15,23,36,0.7);
+  --glass:rgba(255,255,255,0.05);
+}
+html,body{
+  margin:0;
+  height:100%;
+  font-family:Inter,system-ui,sans-serif;
+  background:var(--bg);
+  color:#e6eef6;
+  overflow-y: auto; /* enable page scroll */
+}
+a{color:inherit;text-decoration:none;}
+.app{display:flex;min-height:100vh;}
+.sidebar{
+  width:260px;
+  background:linear-gradient(180deg,var(--panel),#07101a);
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  position:fixed;
+  height:100%;
+  backdrop-filter:blur(6px);
+  border-right:1px solid rgba(255,255,255,0.05);
+}
+.brand{font-size:22px;font-weight:700;color:#ffd54a;margin-bottom:8px;}
+.wallet-preview{font-size:13px;color:var(--muted);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.02);}
+.wallet-preview .value{font-weight:700;color:#fff;margin-top:6px;display:block;}
+.menu{display:flex;flex-direction:column;gap:6px;margin-top:10px;}
+.menu a{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;font-weight:600;font-size:14px;color:var(--muted);transition:0.2s;}
+.menu a:hover{background:rgba(255,255,255,0.1);color:#fff;}
+.menu a.active{background:var(--accent);color:#fff;box-shadow:0 6px 20px rgba(31,111,235,0.15);}
+.menu .logout{margin-top:auto;color:#ffb3b3;font-weight:700;padding:10px;border-radius:8px;}
+.main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  margin-left:260px;
+  min-height:100vh;
+  /* overflow removed so sticky works */
+}
+.topbar{
+  height:72px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 26px;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  background:var(--panel);
+  position:sticky;
+  top:0;
+  z-index:10;
+  gap:20px;
+}
+.quick-actions{display:flex;gap:10px;align-items:center;}
+.qa-btn{background:var(--accent);border:none;color:#fff;padding:10px 14px;border-radius:8px;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(31,111,235,0.12);}
+.qa-btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);box-shadow:none;font-weight:600;}
+.profile{display:flex;align-items:center;gap:12px;}
+.profile .badge{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:10px;font-weight:700;}
+.dashboard{
+  padding:24px;
+  display:grid;
+  grid-template-columns:1fr 360px;
+  gap:20px;
+  align-items:start;
+}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.card{background:var(--card);border-radius:16px;padding:20px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.02);box-shadow:0 8px 20px rgba(0,0,0,0.4);transition:0.3s;}
+.card:hover{transform:translateY(-3px);}
+.total-balance{grid-column:span 2;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;}
+.total-left h3{margin:0;color:var(--muted);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;}
+.total-left .amount{font-size:32px;font-weight:800;color:#fff;margin-top:6px;}
+.total-left .delta{margin-top:6px;color:var(--success); font-weight:700; font-size:13px;}
+.breakdown{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;align-items:center;}
+.breakdown .chip{background:var(--glass);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;color:var(--muted);}
+.breakdown .chip strong{color:#fff;margin-left:6px;}
+.portfolio-list{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
+.token-row{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:12px;background:var(--glass);}
+.token-name{display:flex;gap:10px;align-items:center;font-weight:700;color:#fff;}
+.token-amt{font-weight:700;color:#fff;}
+.op-platforms{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px;}
+.op-platforms .platform{padding:14px;border-radius:12px;background:var(--glass);font-weight:700;text-align:center;cursor:pointer;transition:0.2s;}
+.op-platforms .platform:hover{background:var(--accent);color:#fff;}
+.right-col{display:flex;flex-direction:column;gap:16px;max-height:calc(100vh - 72px);overflow-y:auto;}
+.mini{padding:14px;border-radius:12px;background:var(--glass);}
+.mini h4{margin:0 0 10px 0;color:var(--muted);font-size:14px;}
+.insights{min-height:160px;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005));}
+.tx-list{display:flex;flex-direction:column;gap:8px;max-height:220px;overflow:auto;}
+.tx-item{display:flex;justify-content:space-between;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.01);}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px;}
+.app-card{padding:12px;border-radius:8px;background:rgba(255,255,255,0.02);text-align:center;font-weight:700;cursor:pointer;}
+.app-card:hover{background:var(--accent);color:#fff;}
+.chart-card{grid-column:span 2;}
+@media(max-width:1100px){
+  .dashboard{grid-template-columns:1fr 320px;}
+  .cards{grid-template-columns:1fr;}
+  .total-balance{flex-direction:column;align-items:flex-start;}
+  .apps{grid-template-columns:repeat(2,1fr);}
+  .chart-card{grid-column:span 1;}
+}
+@media(max-width:720px){
+  .sidebar{display:none;}
+  .main{margin-left:0;}
+  .dashboard{grid-template-columns:1fr;}
+  .right-col{order:2;}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="brand">Raaswallet Dashboard</div>
+    <div class="wallet-preview">
+      <div>Wallet Connected</div>
+      <div class="value" id="wallet-balance">Raas 1,250.00 · RBT 420.00 · $8,920.00</div>
+    </div>
+    <nav class="menu" id="sidebarMenu">
+      <a href="#" class="menu-item active">🏠 Dashboard Overview</a>
+      <a href="#" class="menu-item">🔍 RaasGenAI Console</a>
+      <a href="#" class="menu-item">📈 RABEX (Trading Hub)</a>
+      <a href="#" class="menu-item">💳 Raaspay & Settlement</a>
+      <a href="#" class="menu-item">👛 Wallet Balances</a>
+      <a href="#" class="menu-item">🔎 RaasExplorer</a>
+      <a href="#" class="menu-item">📊 AI Reports & Insights</a>
+      <a href="#" class="menu-item">⚙️ Settings / Integrations</a>
+      <a href="#" class="menu-item logout">🚪 Logout</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+<div class="topbar">
+  <div class="quick-actions">
+    <button class="qa-btn" id="sendBtn">Send</button>
+    <button class="qa-btn" id="receiveBtn">Receive</button>
+    <button class="qa-btn" id="swapBtn">Swap</button>
+    <button class="qa-btn ghost" id="payBtn">Pay</button>
+    <button class="qa-btn ghost" id="aiBtn">Launch AI</button>
+
+    <!-- Updated RaasBridge Button -->
+    <button class="qa-btn" id="openBridgeTop" style="
+      background: linear-gradient(45deg, #FFD700, #FFC107);
+      color: #000;
+      box-shadow: 0 6px 20px rgba(255,215,0,0.5);
+      font-weight: 800;
+      border-radius: 10px;
+    ">Open RaasBridge</button>
+  </div>
+
+  <div class="profile">
+    <div class="profile-info">
+<div class="user-row">
+  <img src="images/Avatar.png" alt="User Avatar" class="user-avatar-img">
+</div>
+<div class="connection-line">
+  <strong style="color:#2ecc71;">Connected:</strong> <strong>🟢 RaasBridge</strong>
+</div>
+    </div>
+  </div>
+</div>
+
+    <section class="dashboard">
+      <!-- Left Column -->
+      <div>
+        <div class="cards">
+          <!-- Total Balance Card -->
+          <div class="card total-balance">
+            <div class="total-left">
+              <h3>Total Portfolio Value</h3>
+              <div class="amount" id="totalAmount">$ 8,920</div>
+              <div class="delta" id="dayDelta">+1.8% Today</div>
+              <div class="breakdown">
+                <div class="chip">Raas <strong>60%</strong></div>
+                <div class="chip">RBT <strong>30%</strong></div>
+                <div class="chip">Stable <strong>10%</strong></div>
+              </div>
+            </div>
+            <div style="min-width:220px">
+              <div style="font-size:13px;color:var(--muted)">Available</div>
+              <div style="font-weight:800;font-size:18px;margin-top:6px">Raas 1,250.00</div>
+            </div>
+          </div>
+
+          <!-- Token Holdings -->
+          <div class="card">
+            <h4 style="margin:0;color:var(--muted)">Token Holdings</h4>
+            <div class="portfolio-list">
+              <div class="token-row"><div class="token-name">Raas <span style="color:var(--muted)">(RAAS)</span></div><div class="token-amt" id="balanceRaas">1,250.00</div></div>
+              <div class="token-row"><div class="token-name">RBT <span style="color:var(--muted)">(RBT)</span></div><div class="token-amt" id="balanceRBT">420.00</div></div>
+              <div class="token-row"><div class="token-name">USDT <span style="color:var(--muted)">(Stable)</span></div><div class="token-amt" id="balanceUSDT">$1,200.00</div></div>
+            </div>
+          </div>
+
+          <!-- Charts Section -->
+          <div class="card chart-card">
+            <h4 style="margin:0;color:var(--muted)">Portfolio Over Time</h4>
+            <canvas id="portfolioChart" style="height:200px;margin-top:12px;"></canvas>
+          </div>
+
+          <div class="card chart-card">
+            <h4 style="margin:0;color:var(--muted)">Token Allocation</h4>
+            <canvas id="allocationChart" style="height:200px;margin-top:12px;"></canvas>
+          </div>
+
+          <div class="card chart-card">
+            <h4 style="margin:0;color:var(--muted)">Recent Trades Volume</h4>
+            <canvas id="tradesChart" style="height:200px;margin-top:12px;"></canvas>
+          </div>
+
+          <div class="card">
+            <h4 style="margin:0;color:var(--muted)">Recent Transactions</h4>
+            <div class="tx-list" id="txList"></div>
+            <div style="margin-top:12px"><a href="#" style="color:var(--accent); font-weight:700">View all transactions →</a></div>
+          </div>
+
+          <div class="card">
+            <h4 style="margin:0;color:var(--muted)">Apps & Services</h4>
+            <div class="apps">
+              <div class="app-card" data-app="raaswallet">Raaswallet</div>
+              <div class="app-card" data-app="rabex">RABEX</div>
+              <div class="app-card" data-app="raaspay">Raaspay</div>
+              <div class="app-card" data-app="genai">RaasGenAI</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <aside class="right-col">
+        <div class="mini">
+          <h4>Market Snapshot</h4>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+            <div><div style="font-weight:800">RAAS / USD</div><div style="color:var(--muted)">Spot: $7.12</div></div>
+            <div style="text-align:right"><div style="font-weight:800">RBT / USD</div><div style="color:var(--muted)">Spot: $0.84</div></div>
+          </div>
+        </div>
+
+        <div class="mini">
+          <h4>AI Insights</h4>
+          <div class="insights">
+            <div style="font-weight:800">Raas price momentum</div>
+            <div style="color:var(--muted);margin-top:8px">Short term momentum positive; consider limit orders on dips.</div>
+          </div>
+        </div>
+
+        <div class="mini">
+          <h4>System Status</h4>
+          <div style="font-size:13px;color:var(--muted)">
+            Node sync: <strong style="color:#fff">OK</strong><br/>
+            Oracle (Gold): <strong style="color:#fff">Updated 3m ago</strong><br/>
+            Bridge health: <strong style="color:var(--success)">Good</strong>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+</div>
+
+<script>
+// --- Auth Guard ---
+(function(){
+  const token = localStorage.getItem('authToken');
+  if(!token){
+    const banner = document.createElement('div');
+    banner.style.cssText='position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:9999;background:rgba(0,0,0,0.7);padding:14px 18px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.6);';
+    banner.innerHTML='You are not authenticated. <a href="raaswallet.html" style="color:var(--accent);font-weight:700">Login / Get Raaswallet</a> or <button id="demoLogin" style="margin-left:12px;padding:6px 10px;border-radius:8px;border:none;background:var(--accent);color:#fff;cursor:pointer">Demo login</button>';
+    document.body.appendChild(banner);
+    document.getElementById('demoLogin').addEventListener('click',()=>{localStorage.setItem('authToken','demo-token-123456'); banner.remove(); location.reload();});
+  }
+})();
+
+// --- Transactions ---
+const txs=[{type:'Send',asset:'Raas',amt:'-50.00',time:'2h ago',status:'Confirmed'},{type:'Swap',asset:'RBT→Raas',amt:'+12.5',time:'5h ago',status:'Confirmed'},{type:'Receive',asset:'USDT',amt:'+$1,200.00',time:'1d ago',status:'Confirmed'},{type:'Stake',asset:'RaasFarm',amt:'+150.00',time:'2d ago',status:'Pending'},{type:'Fee',asset:'RBT',amt:'-0.84',time:'3d ago',status:'Confirmed'}];
+const txList = document.getElementById('txList');
+txs.forEach(t=>{
+  const item=document.createElement('div');item.className='tx-item';
+  item.innerHTML=`<div style="display:flex;flex-direction:column"><strong>${t.type}</strong><small style="color:var(--muted)">${t.asset} · ${t.time}</small></div><div style="text-align:right"><div style="font-weight:700">${t.amt}</div><small style="color:${t.status==='Pending'?'#f59e0b':'var(--muted)'}">${t.status}</small></div>`;
+  txList.appendChild(item);
+});
+
+// --- Charts ---
+const ctxPortfolio=document.getElementById('portfolioChart').getContext('2d');
+new Chart(ctxPortfolio,{type:'line',data:{labels:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],datasets:[{label:'Total Value',$borderColor:'#1f6feb',borderWidth:2,fill:true,backgroundColor:'rgba(31,111,235,0.15)',data:[7200,7350,7480,7620,7700,7800,8920]}]},options:{responsive:true,plugins:{legend:{display:false}}}});
+
+const ctxAllocation=document.getElementById('allocationChart').getContext('2d');
+new Chart(ctxAllocation,{type:'doughnut',data:{labels:['Raas','RBT','Stable'],datasets:[{data:[60,30,10],backgroundColor:['#1f6feb','#16a34a','#ef4444']}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:'#fff'}}}}});
+
+const ctxTrades=document.getElementById('tradesChart').getContext('2d');
+new Chart(ctxTrades,{type:'bar',data:{labels:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],datasets:[{label:'Trades Volume',data:[50,60,40,80,75,90,120],backgroundColor:'#16a34a'}]},options:{responsive:true,plugins:{legend:{display:false}}}});
+</script>
+
+<script>
+// Open RaasBridge externally
+document.getElementById('openBridgeTop').addEventListener('click', () => {
+  window.open('http://raasbridge-ui.s3-website-us-east-1.amazonaws.com/', '_blank');
+});
+</script>
+
+</body>
+</html>
